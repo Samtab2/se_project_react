@@ -1,13 +1,65 @@
-
+import { useState } from "react";
 import "./App.css";
 import Header from "../Header/Header";
+import Main from "../Main/Main";
+import ModalWithForms from "../ModalWIthForms/ModalWithForms";
 function App() {
-  
+  const [weatherData, setWeatherData] = useState({ type: "hot" });
+  const [activeModal, setActiveModal] = useState("add-garment");
+  const handleAddClick = () => {
+    setActiveModal("add-garment");
+  };
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
   return (
     <div className="page">
       <div className="page__content">
-        <Header />
+        <Header HandleAddClick={handleAddClick} />
+        <Main weatherData={weatherData} />
       </div>
+      <ModalWithForms
+        title="New garment"
+        buttonText="Add garment"
+        activeModal={activeModal}
+        HandleCloseClick={closeActiveModal}
+        >
+        <label htmlFor="name" className="modal__label">
+          Name{" "}
+          <input
+            type="text"
+            className="modal__input"
+            id="name"
+            placeholder="Name"
+          />
+        </label>
+        <label htmlFor="ImageUrl" className="modal__label">
+          Image{" "}
+          <input
+            type="text"
+            className="modal__input"
+            id="imageUrl"
+            placeholder="ImageUrl"
+          />
+        </label>
+        <fieldset className="modal__radio-buttons">
+          <legend className="modal__legend">Select the weather type</legend>
+          <label htmlFor="hot" className="modal__label modal__input_type_radio">
+            <input id="cold" type="radio" className="modal__radio-input" /> Hot
+          </label>
+          <label
+            htmlFor="warm"
+            className="modal__label modal__input_type_radio">
+            <input id="cold" type="radio" className="modal__radio-input" /> Warm
+          </label>
+          <label
+            htmlFor="cold"
+            className="modal__label modal__input_type_radio">
+            <input id="cold" type="radio" className="modal__radio-input" /> Cold
+          </label>
+        </fieldset>
+      </ModalWithForms>
     </div>
   );
 }
