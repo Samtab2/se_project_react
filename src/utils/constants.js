@@ -1,3 +1,91 @@
+export const weatherOptions = [
+  {
+    day: "true",
+    condition: "Sunny",
+    url: new URL ("../assets/Day/Sunny.png", import.meta.url).href,
+  },
+
+  {
+    day: "false",
+    condition: "Sunny",
+    url: new URL ("../assets/Night/Sunny.png", import.meta.url).href,
+  },
+  {
+    day: "true",
+    condition: "Cloudy",
+    url: new URL ("../assets/Day/Cloudy.png", import.meta.url).href,
+  },
+  {
+    day: "false",
+    condition: "Cloudy",
+    url: new URL ("../assets/Night/Cloudy.png", import.meta.url).href,
+  },
+  {
+    day: "true",
+    condition: "Rain",
+    url: new URL ("../assets/Day/Rain.png", import.meta.url).href,
+  },
+  {
+    day: "false",
+    condition: "Rain",
+    url: new URL ("../assets/Night/Rain.png", import.meta.url).href,
+  },
+  {
+    day: "true",
+    condition: "Storm",
+    url: new URL ("../assets/Day/Storm.png", import.meta.url).href,
+  },
+  {
+    day: "false",
+    condition: "Storm",
+    url: new URL ("../assets/Night/Storm.png", import.meta.url).href,
+  },
+  {
+    day: "true",
+    condition: "Snow",
+    url: new URL ("../assets/Day/Snow.png", import.meta.url).href,
+  },
+  {
+    day: "false",
+    condition: "Snow",
+    url: new URL ("../assets/Night/Snow.png", import.meta.url).href,
+  },
+  {
+    day: "true",
+    condition: "Fog",
+    url: new URL ("../assets/Day/Fog.png", import.meta.url).href,
+  },
+  {
+    day: "false",
+    condition: "Fog",
+    url: new URL ("../assets/Night/Fog.png", import.meta.url).href,
+  },
+];
+
+export const defaultWeatherOptions = {
+ day: {
+   url: new URL ("../assets/Day/Clear.png", import.meta.url).href,
+ },
+ night: {
+   url: new URL ("../assets/Night/Night.png", import.meta.url).href,
+ }
+ 
+
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -36,3 +124,12 @@ export const defaultClothingItems = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
   },
 ];
+
+export const coordinates = {
+  latitude: 25.761681,
+  longitude: -80.191788,
+};
+
+
+export const APIkey ="9e88935f20e88aa9e3b5260bb12ff452";
+
