@@ -1,62 +1,62 @@
 export const weatherOptions = [
   {
-    day: "true",
+    day: true,
     condition: "Sunny",
     url: new URL ("../assets/Day/Sunny.png", import.meta.url).href,
   },
 
   {
-    day: "false",
+    day: false,
     condition: "Sunny",
     url: new URL ("../assets/Night/Sunny.png", import.meta.url).href,
   },
   {
-    day: "true",
+    day: true,
     condition: "clouds",
     url: new URL ("../assets/Day/Cloudy.png", import.meta.url).href,
   },
   {
-    day: "false",
+    day: false,
     condition: "clouds",
     url: new URL ("../assets/Night/Cloudy.png", import.meta.url).href,
   },
   {
-    day: "true",
+    day: true,
     condition: "rain",
     url: new URL ("../assets/Day/Rain.png", import.meta.url).href,
   },
   {
-    day: "false",
+    day: false,
     condition: "rain",
     url: new URL ("../assets/Night/Rain.png", import.meta.url).href,
   },
   {
-    day: "true",
+    day: true,
     condition: "Storm",
     url: new URL ("../assets/Day/Storm.png", import.meta.url).href,
   },
   {
-    day: "false",
+    day: false,
     condition: "Storm",
     url: new URL ("../assets/Night/Storm.png", import.meta.url).href,
   },
   {
-    day: "true",
+    day: true,
     condition: "snow",
     url: new URL ("../assets/Day/Snow.png", import.meta.url).href,
   },
   {
-    day: "false",
+    day: false,
     condition: "snow",
     url: new URL ("../assets/Night/Snow.png", import.meta.url).href,
   },
   {
-    day: "true",
+    day: true,
     condition: "Fog",
     url: new URL ("../assets/Day/Fog.png", import.meta.url).href,
   },
   {
-    day: "false",
+    day: false,
     condition: "Fog",
     url: new URL ("../assets/Night/Fog.png", import.meta.url).href,
   },
