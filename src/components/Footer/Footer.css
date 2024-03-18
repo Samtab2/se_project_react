@@ -5,4 +5,9 @@
     padding: 20px;
     text-align: center;
   }
+
+  .footer__text {
+    margin: 0;
+    font-family: CabinetGrotesk;
+  }
   

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import ModalWithForms from "../ModalWIthForms/ModalWithForms";
+import ModalWithForm from "../ModalWIthForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getweather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -41,7 +41,7 @@ function App() {
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
       </div>
-      <ModalWithForms
+      <ModalWithForm
         title="New garment"
         buttonText="Add garment"
         activeModal={activeModal}
@@ -67,20 +67,20 @@ function App() {
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend">Select the weather type:</legend>
           <label htmlFor="hot" className="modal__label modal__input_type_radio">
-            <input id="cold" type="radio" className="modal__radio-input" /> Hot
+            <input name="temperature" id="cold" type="radio" className="modal__radio-input" /> Hot
           </label>
           <label
             htmlFor="warm"
             className="modal__label modal__input_type_radio">
-            <input id="cold" type="radio" className="modal__radio-input" /> Warm
+            <input name="temperature" id="cold" type="radio" className="modal__radio-input" /> Warm
           </label>
           <label
             htmlFor="cold"
             className="modal__label modal__input_type_radio">
-            <input id="cold" type="radio" className="modal__radio-input" /> Cold
+            <input name="temperature" id="cold" type="radio" className="modal__radio-input" /> Cold
           </label>
         </fieldset>
-      </ModalWithForms>
+      </ModalWithForm>
       <ItemModal
         activeModal={activeModal}
         card={selectedCard}

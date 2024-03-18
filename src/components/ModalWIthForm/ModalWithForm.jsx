@@ -1,6 +1,6 @@
-import "./ModalWithForms.css";
+import "./ModalWithForm.css";
 
-function ModalWithForms({
+function ModalWithForm({
   children,
   title,
   activeModal,
@@ -25,4 +25,4 @@ function ModalWithForms({
   );
 }
 
-export default ModalWithForms;
+export default ModalWithForm;
