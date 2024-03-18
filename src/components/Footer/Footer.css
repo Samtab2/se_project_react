@@ -3,7 +3,8 @@
 .footer {
     background-color: #f0f0f0;
     padding: 20px;
-    text-align: center;
+    text-align: right;
+    line-height: 20px;
   }
 
   .footer__text {
