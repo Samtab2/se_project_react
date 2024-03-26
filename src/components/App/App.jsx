@@ -54,7 +54,7 @@ function App() {
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
           <Routes>
             <Route
-              path="/se-project_react/"
+              path="/"
               element={
                 <Main
                   weatherData={weatherData}
