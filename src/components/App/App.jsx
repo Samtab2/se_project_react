@@ -65,10 +65,10 @@ function App() {
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
-        {activeModal === "create" && (
+        {activeModal === "add-garment" && (
           <AddItemModal
             onClose={closeActiveModal}
-            isOpen={activeModal === "create"}
+            isOpen={activeModal === "add-garment"}
           />)} {activeModal === "preview" && (    <ItemModal
             activeModal={activeModal}
             card={selectedCard}
