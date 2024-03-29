@@ -5,20 +5,19 @@ import ModalWithForm from "../ModalWIthForm/ModalWithForm";
 const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
-    console.log(e);
-    setName(e);
+    setName(e.target.value);
   };
 
   const [link, setUrl] = useState("");
   const handleUrlChange = (e) => {
-    setUrl(e);
+    setUrl(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem({ name, link });
   };
-
+ 
   return (
     <ModalWithForm
       title="New garment"
