@@ -28,7 +28,7 @@ function App() {
     setActiveModal("add-garment");
   };
 
-  const closeActiveModal = () => {
+  const onClose = () => {
     setActiveModal("");
   };
 
@@ -45,6 +45,11 @@ function App() {
       })
       .catch(console.error);
   }, []);
+
+  const onAddItem = (e) => {
+    e.preventDefault();
+    console.log(e);
+  };
 
   return (
     <div className="page">
@@ -67,12 +72,12 @@ function App() {
         </div>
         {activeModal === "add-garment" && (
           <AddItemModal
-            onClose={closeActiveModal}
-            isOpen={activeModal === "add-garment"}
+            onClose={onClose}
+            isOpen={activeModal === "add-garment"} onAddItem={onAddItem}
           />)} {activeModal === "preview" && (    <ItemModal
             activeModal={activeModal}
             card={selectedCard}
-            onClose={closeActiveModal}
+            onClose={onClose}
           />
          )}
      
