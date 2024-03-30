@@ -13,7 +13,7 @@ class Api {
       return Promise.reject(`Error ${res.status}`);
     }
   
-    getCards() {
+    getItems() {
       return fetch(this.baseUrl + "/items", {
         method: "GET",
       }).then(this._checkResponse);
