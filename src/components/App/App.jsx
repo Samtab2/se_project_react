@@ -10,7 +10,15 @@ import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import api from "../../utils/api";
+import Api from "../../utils/api";
+
+// Create an instance of the Api class
+const api = new Api({
+  baseUrl: "https://localhost:3001",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -38,7 +46,8 @@ function App() {
     api
       .addItem(item)
       .then((newItem) => {
-        setClothingItems([...clothingItems, newItem]);
+        setClothingItems([newItem, ...clothingItems]);
+        onClose();
       })
       .catch(console.error);
   }
@@ -46,6 +55,19 @@ function App() {
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+  };
+
+  const handleItemDelete = (id) => {
+    api
+      .deleteItem(selectedCard._id)
+      .then(() => {
+        const newClothingItems = clothingItems.filter(
+          (item) => item._id !== selectedCard._id
+        );
+        setClothingItems(newClothingItems);
+        onClose();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -56,6 +78,18 @@ function App() {
       })
       .catch(console.error);
   }, []);
+
+
+
+  useEffect(() => {
+    api
+      .getItems()
+      .then((items) => {
+        setClothingItems(items);
+      })
+      .catch(console.error);
+  }, []);
+
 
   const onAddItem = (data) => {
     // Send API request to create new item
@@ -74,11 +108,13 @@ function App() {
               element={
                 <Main
                   weatherData={weatherData}
-                  handleCardClick={handleCardClick}
+                  onSelectCard={handleCardClick}
+                  clothingItems={clothingItems}
                 />
               }
             />
-            <Route path="/profile" element={<Profile handleCardClick={handleCardClick} />} />
+            <Route path="/profile" element={<Profile onSelectCard={handleCardClick}
+              handleAddClick={handleAddClick}/>} />
           </Routes>
         </div>
         {activeModal === "add-garment" && (
