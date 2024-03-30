@@ -10,6 +10,7 @@ import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
+import api from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -20,6 +21,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState([]);
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -31,6 +33,15 @@ function App() {
   const onClose = () => {
     setActiveModal("");
   };
+
+  const handleAddItemSubmit = (item) => {
+    api
+      .addItem(item)
+      .then((newItem) => {
+        setClothingItems([...clothingItems, newItem]);
+      })
+      .catch(console.error);
+  }
 
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
@@ -46,9 +57,9 @@ function App() {
       .catch(console.error);
   }, []);
 
-  const onAddItem = (e) => {
-    e.preventDefault();
-    console.log(e);
+  const onAddItem = (data) => {
+    // Send API request to create new item
+    // pass the API the data argument
   };
 
   return (
@@ -67,13 +78,13 @@ function App() {
                 />
               }
             />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile handleCardClick={handleCardClick} />} />
           </Routes>
         </div>
         {activeModal === "add-garment" && (
           <AddItemModal
             onClose={onClose}
-            isOpen={activeModal === "add-garment"} onAddItem={onAddItem}
+            isOpen={activeModal === "add-garment"} onAddItem={handleAddItemSubmit}
           />)} {activeModal === "preview" && (    <ItemModal
             activeModal={activeModal}
             card={selectedCard}
