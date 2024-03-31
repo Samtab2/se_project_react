@@ -45,8 +45,8 @@ function App() {
   const handleAddItemSubmit = (item) => {
     api
       .addItem(item)
-      .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+      .then((res) => {
+        setClothingItems([res, ...clothingItems]);
         onClose();
       })
       .catch(console.error);
@@ -84,8 +84,8 @@ function App() {
   useEffect(() => {
     api
       .getItems()
-      .then((items) => {
-        setClothingItems(items);
+      .then((res) => {
+        setClothingItems(res);
       })
       .catch(console.error);
   }, []);
@@ -122,7 +122,7 @@ function App() {
             onClose={onClose}
             isOpen={activeModal === "add-garment"} onAddItem={handleAddItemSubmit}
           />)} {activeModal === "preview" && (    <ItemModal
-            activeModal={activeModal}
+            onDelete={handleItemDelete}
             card={selectedCard}
             onClose={onClose}
           />

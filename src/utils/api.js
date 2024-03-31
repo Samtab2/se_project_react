@@ -1,43 +1,42 @@
 class Api {
-    constructor({ baseUrl, headers }) {
-      // constructor body
-      this._baseUrl = baseUrl;
-      this._headers = headers;
-    }
-  
-   
-    _checkResponse(res) {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error ${res.status}`);
-    }
-  
-    getItems() {
-      return fetch(this._baseUrl + "/items", {
-        method: "GET",
-      }).then(this._checkResponse);
-    }
-  
-    addItem({ name, imageUrl, weather }) {
-      return fetch(this._baseUrl + "/items", {
-        method: "POST",
-        headers: this._headers,
-        body: JSON.stringify({
-          name,
-          imageUrl,
-          weather,
-        }),
-      }).then(this._checkResponse);
-    }
-  
-    deleteItem(id) {
-      return fetch(this._baseUrl + "/items/" + id, {
-        method: "DELETE",
-        headers: this._headers,
-      }).then(this._checkResponse);
-    }
+  constructor({ baseUrl, headers }) {
+    // constructor body
+    this.baseUrl = baseUrl;
+    this._headers = headers;
   }
-  
-  export default Api;
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    // if the server returns an error, reject the promise
+    return Promise.reject(`Error ${res.status}`);
+  }
+
+  getItems() {
+    return fetch(`${this.baseUrl}/items`, {
+      method: "GET",
+    }).then(this._checkResponse);
+  }
+
+  addItem({ name, imageUrl, weather }) {
+    return fetch(`${this.baseUrl}/items`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        imageUrl,
+        weather,
+      }),
+    }).then(this._checkResponse);
+  }
+
+  deleteItem(id) {
+    return fetch(`${this.baseUrl}/items/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+}
+
+export default Api;
