@@ -6,7 +6,7 @@ import { useContext, useMemo } from "react";
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
     const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-    const temp = weatherData?.temp?.temperature?.[currentTemperatureUnit];
+    const temp = weatherData?.temp?.[currentTemperatureUnit];
     const weatherType = useMemo(() => {
       if (
         (temp >= 70 && currentTemperatureUnit === "F") ||
@@ -27,7 +27,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
     }, [weatherData]);
 
     const filteredCards = clothingItems.filter((item) => {
-      return item.weather === weatherType;
+      return weatherType && item.weather === weatherType;
     })
   return (
     <main>
@@ -44,7 +44,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
                   item={item}
                   onCardClick={handleCardClick}
                 />
-            ))};
+            ))}
         </ul>
       </section>
     </main>
