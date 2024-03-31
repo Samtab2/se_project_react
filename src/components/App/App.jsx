@@ -14,7 +14,7 @@ import Api from "../../utils/api";
 
 // Create an instance of the Api class
 const api = new Api({
-  baseUrl: "https://localhost:3001",
+  baseUrl: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
   },

@@ -1,10 +1,11 @@
 class Api {
     constructor({ baseUrl, headers }) {
       // constructor body
-      this.baseUrl = baseUrl;
+      this._baseUrl = baseUrl;
       this._headers = headers;
     }
   
+   
     _checkResponse(res) {
       if (res.ok) {
         return res.json();
@@ -14,13 +15,13 @@ class Api {
     }
   
     getItems() {
-      return fetch(this.baseUrl + "/items", {
+      return fetch(this._baseUrl + "/items", {
         method: "GET",
       }).then(this._checkResponse);
     }
   
     addItem({ name, imageUrl, weather }) {
-      return fetch(this.baseUrl + "/items", {
+      return fetch(this._baseUrl + "/items", {
         method: "POST",
         headers: this._headers,
         body: JSON.stringify({
@@ -32,7 +33,7 @@ class Api {
     }
   
     deleteItem(id) {
-      return fetch(this.baseUrl + "/items/" + id, {
+      return fetch(this._baseUrl + "/items/" + id, {
         method: "DELETE",
         headers: this._headers,
       }).then(this._checkResponse);
