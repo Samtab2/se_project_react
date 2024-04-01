@@ -108,12 +108,12 @@ function App() {
               element={
                 <Main
                   weatherData={weatherData}
-                  onClick={handleCardClick}
+                  handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />
               }
             />
-            <Route path="/profile" element={<Profile onClick={handleCardClick}
+            <Route path="/profile" element={<Profile handleCardClick={handleCardClick}
               handleAddClick={handleAddClick}/>} />
           </Routes>
         </div>
