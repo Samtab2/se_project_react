@@ -2,10 +2,7 @@ import "./ItemCard.css";
 
 
 
-function ItemCard({ item, onCardClick }) {
-    const handleCardClick = () => {
-        onCardClick(item);
-    }
+function ItemCard({ item, handleCardClick }) {
   return (
     <li className="card">
       <h2 className="card__name">{item.name}</h2>
