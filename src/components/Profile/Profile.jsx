@@ -1,15 +1,20 @@
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
-function Profile({ handleCardClick }) {
+function Profile({ handleCardClick, clothingItems }) {
   return (
-    <div className="profile">
+    <div className="profile-container">
       <section className="profile__sidebar">
         <SideBar />
       </section>
-      <section className="profile__clothing-items"></section>
-
-      <ClothesSection handleCardClick={handleCardClick} />
+      <section className="profile__clothing-items">
+        <h2>Your Items</h2>
+        <button>Add Items</button>
+        <ClothesSection
+          clothingItems={clothingItems}
+          handleCardClick={handleCardClick}
+        />
+      </section>
     </div>
   );
 }
