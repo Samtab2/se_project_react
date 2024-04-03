@@ -114,7 +114,7 @@ function App() {
               }
             />
             <Route path="/profile" element={<Profile handleCardClick={handleCardClick}
-              handleAddClick={handleAddClick}/>} />
+              handleAddClick={handleAddClick} clothingItems={clothingItems}/>} />
           </Routes>
         </div>
         {activeModal === "add-garment" && (
