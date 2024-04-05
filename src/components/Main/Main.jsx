@@ -3,7 +3,7 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { useContext, useMemo } from "react";
-import Profile from "../Profile/Profile";
+
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
     const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
@@ -35,7 +35,6 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
     <main>
       <WeatherCard day={true} type="sunny" weatherData={weatherData} />
       <section className="cards">
-        <Profile handleCardClick={handleCardClick} / >
         <p className="cards__text">
           Today is {weatherData?.temp?.[currentTemperatureUnit]} &deg; / You may want to wear:
         </p>

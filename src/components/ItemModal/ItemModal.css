@@ -1,21 +1,19 @@
 .modal__footer {
- font-family: CabinetGrotesk;
- font-size: 16px;
- font-weight: 700;
- line-height: 20px;
- letter-spacing: 0em;
- text-align: left;
+  font-family: CabinetGrotesk;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .modal__caption {
- margin-bottom: 12px;
- margin-left: 20px;
+  margin-bottom: 12px;
+  margin-left: 20px;
 }
 
 .modal__weather {
- margin-left: 20px;
+  margin-left: 20px;
 }
-
-
 
 

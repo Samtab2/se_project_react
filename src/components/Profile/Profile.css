@@ -1,6 +1,8 @@
-.profile-container {
+.profile {
     display: flex;
     flex-wrap: wrap;
+    gap: 21px;
+ 
   }
   
   .profile__sidebar {
@@ -8,7 +10,10 @@
     padding: 20px;
   }
   
-  .profile__clothing-items {
-    flex: 0 0 75%;
-    padding: 20px;
+
+
+  .profile__button-add {
+   width: 88px;
+   height: 25px;
+   background-color: transparent;
   }

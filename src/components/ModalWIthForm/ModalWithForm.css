@@ -50,7 +50,9 @@
 }
 
 
-.modal__content {
+
+
+.modal__content_type_image {
     background-color: #fff;
     position: relative;
     max-width: 496px;
@@ -59,10 +61,6 @@
     border-radius: 20px;
     overflow: hidden; 
     padding: 25px;
-}
-
-.modal__content_type_image {
-    padding: 0px;
 }
 
 .modal__form {

@@ -125,6 +125,7 @@ function App() {
             onDelete={handleItemDelete}
             card={selectedCard}
             onClose={onClose}
+            isOpen={activeModal === "preview"}
           />
          )}
      

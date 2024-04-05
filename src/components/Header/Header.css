@@ -58,3 +58,9 @@
   letter-spacing: 0em;
   text-align: left;
 }
+
+
+.header__profile-link {
+  text-decoration: none;
+  color: #000;
+}
