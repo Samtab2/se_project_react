@@ -10,6 +10,7 @@ function WeatherCard({ weatherData }) {
       option.condition === weatherData.condition
     );
   });
+  
 
   let weatherOption;
   if (!filteredOptions) {

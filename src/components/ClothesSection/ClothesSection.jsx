@@ -10,11 +10,12 @@ const ClothesSection = ({ clothingItems, handleCardClick }) => {
   
 
   return (
+     <div>
       <div className="clothes-section__list">
-        <div>
           <p className="clothes-items">Your Items</p>
-          <button className="clothes__button">Add Items</button>
+          <button className="clothes__button"> + Add New</button>
         </div>
+        <ul className="clothes-list">
       {profileCards
         .map((item) => (
           <ItemCard
@@ -23,6 +24,7 @@ const ClothesSection = ({ clothingItems, handleCardClick }) => {
             handleCardClick={handleCardClick}
           />
         ))}
+    </ul>
     </div>
   );
 };

@@ -1,13 +1,11 @@
 .profile {
     display: flex;
-    flex-wrap: wrap;
     gap: 21px;
  
   }
   
   .profile__sidebar {
     flex: 0 0 25%;
-    padding: 20px;
   }
   
 
