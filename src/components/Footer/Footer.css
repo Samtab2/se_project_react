@@ -3,12 +3,10 @@
 .footer {
     background-color: #f0f0f0;
     padding: 20px;
-    text-align: right;
+    text-align: left;
+    font-size: 14px;
     line-height: 20px;
-  }
-
-  .footer__text {
-    margin: 0;
-    font-family: CabinetGrotesk;
+    font-family: 'CabinetGrotesk';
   }
   
+
