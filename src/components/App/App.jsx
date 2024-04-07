@@ -91,10 +91,7 @@ function App() {
   }, []);
 
 
-  const onAddItem = (data) => {
-    // Send API request to create new item
-    // pass the API the data argument
-  };
+
 
   return (
     <div className="page">
