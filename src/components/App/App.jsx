@@ -57,7 +57,7 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const handleItemDelete = (id) => {
+  const handleItemDelete = () => {
     api
       .deleteItem(selectedCard._id)
       .then(() => {

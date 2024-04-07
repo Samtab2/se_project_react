@@ -6,7 +6,7 @@
 .toggle__switch-input {
   margin-left: 700px;
   border-radius: 25px;
-  border: 2px solid black;
+  border: 2px solid rgba(126, 126, 126, 1);
   width: 56px;
   height: 28px;
   appearance: none;
@@ -24,6 +24,7 @@
   cursor: pointer;
   position: absolute;
   margin-left: 700px;
+  transition: 0.4s ease-in-out;
 }
 
 .switch__slider-F {
@@ -34,31 +35,34 @@
   left: 28px;
 }
 
-.switch__active {
-  position: absolute;
-  top: -7px;
-  left: 44px;
-  line-height: 17.36px;
-  color: white;
-  color: 14px;
-}
+
 
 .switch__temp-C {
   position: absolute;
-  top: -7px;
-  left: 30px;
+  top: -9px;
+  left: 35px;
   line-height: 17.36px;
   margin-left: 700px;
-  color: grey;
   cursor: pointer;
-}
+  color: white;
+  font-family: "CabinetGrotesk";
+  font-style: normal;
+  font-weight: 700;
+  }
+ 
+  
+
 
 .switch__temp-F {
   position: absolute;
-  top: -7px;
-  left: 14px;
+  top: -10px;
+  left: 10px;
   line-height: 17.36px;
   margin-left: 700px;
-  color: grey;
+  color: white;
   cursor: pointer;
+  font-family: "CabinetGrotesk";
+  font-style: normal;
+  font-weight: 700;
 }
+

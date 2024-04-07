@@ -17,7 +17,7 @@ const ToggleSwitch = () => {
   return (
     <label className="switch">
       <input
-        className="toggle__switch-input"
+        className="toggle__switch-input switch__input"
         type="checkbox"
         onChange={handleToggleSwitchChange}
       />
@@ -28,13 +28,13 @@ const ToggleSwitch = () => {
             : "switch__slider switch__slider-C"
         }></span>
       <p
-        className={`switch__temp-F ${
+        className={`switch__temp-F  ${
           currentTemperatureUnit === "F" && "switch__active"
         }`}>
         F
       </p>
       <p
-        className={`switch__temp-C ${
+        className={`switch__temp-C  ${
           currentTemperatureUnit === "C" && "switch__active"
         }`}>
         C
