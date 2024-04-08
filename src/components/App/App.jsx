@@ -50,7 +50,7 @@ function App() {
         onClose();
       })
       .catch(console.error);
-  }
+  };
 
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
@@ -71,6 +71,20 @@ function App() {
   };
 
   useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    document.addEventListener("keydown", handleEscClose);
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
+
+  useEffect(() => {
     getweather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
@@ -78,8 +92,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
-
 
   useEffect(() => {
     api
@@ -89,9 +101,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
-
-
 
   return (
     <div className="page">
@@ -110,22 +119,29 @@ function App() {
                 />
               }
             />
-            <Route path="/profile" element={<Profile handleCardClick={handleCardClick}
-              handleAddClick={handleAddClick} clothingItems={clothingItems}/>} />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  handleCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
           </Routes>
         </div>
-        {activeModal === "add-garment" && (
-          <AddItemModal
-            onClose={onClose}
-            isOpen={activeModal === "add-garment"} onAddItem={handleAddItemSubmit}
-          />)} {activeModal === "preview" && (    <ItemModal
-            onDelete={handleItemDelete}
-            card={selectedCard}
-            onClose={onClose}
-            isOpen={activeModal === "preview"}
-          />
-         )}
-     
+        <AddItemModal
+          onClose={onClose}
+          isOpen={activeModal === "add-garment"}
+          onAddItem={handleAddItemSubmit}
+        />
+        <ItemModal
+          onDelete={handleItemDelete}
+          card={selectedCard}
+          onClose={onClose}
+          isOpen={activeModal === "preview"}
+        />
         <Footer />
       </CurrentTemperatureUnitContext.Provider>
     </div>

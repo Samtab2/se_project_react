@@ -1,33 +1,26 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-
-
-const ClothesSection = ({ clothingItems, handleCardClick }) => {
+const ClothesSection = ({ clothingItems, handleCardClick, addItem }) => {
   const profileCards = clothingItems ? clothingItems : [];
 
-
-  
-
   return (
-     <div>
+    <div>
       <div className="clothes-section__list">
-          <p className="clothes-items">Your Items</p>
-          <button className="clothes__button"> + Add New</button>
-        </div>
-        <ul className="clothes-list">
-      {profileCards
-        .map((item) => (
+        <p className="clothes-items">Your Items</p>
+        <button className="clothes__button" onClick={addItem}> + Add New</button>
+      </div>
+      <ul className="clothes-list">
+        {profileCards.map((item) => (
           <ItemCard
             key={item._id}
             item={item}
             handleCardClick={handleCardClick}
           />
         ))}
-    </ul>
+      </ul>
     </div>
   );
 };
-
 
 export default ClothesSection;

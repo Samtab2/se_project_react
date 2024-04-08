@@ -17,7 +17,6 @@
 .clothes__button {
   border: none;
   color: rgba(0, 0, 0, 0.6);
-  background-color: #f4f4f4;;
   font-family: "CabinetGrotesk";
   font-style: normal;
   font-weight: 700;
@@ -29,4 +28,6 @@
   flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
+  gap: 21px;
+
 }

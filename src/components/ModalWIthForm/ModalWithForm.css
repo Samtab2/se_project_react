@@ -1,81 +1,77 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color:#0000004D;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .modal_opened {
-    visibility: visible;
+  visibility: visible;
 }
 
 .modal__label {
-    font-family: CabinetGrotesk;
-    font-weight: 700;
-    margin: 0;
-    font-size: 16px;
-    line-height: 20px;
-    
+  font-family: CabinetGrotesk;
+  font-weight: 700;
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
 }
-
 
 .modal__title {
-    font-family: CabinetGrotesk;
-    font-weight: 700;
-    margin: 0;
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 24px;
+  font-family: CabinetGrotesk;
+  font-weight: 700;
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 24px;
 }
-
 
 .modal__close {
-    background-image: url("../../assets/Close-button.svg");
-    border: none;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    padding: 0;
-    background-size: contain;
-    position: absolute;
-    top: 20px;
-    right: 28px;
-    cursor: pointer;
+  background-image: url("../../assets/Close-button.svg");
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  padding: 0;
+  background-size: contain;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  cursor: pointer;
 }
 
-.modal__content{
-    background-color: #fff;
-    position: relative;
-    max-width: 496px;
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    padding: 30px;
+.modal__content {
+  background-color: #fff;
+  position: relative;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 30px;
 }
-
-
 
 .modal__content_type_image {
-    background-color: #fff;
-    position: relative;
-    max-width: 498px;
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden; 
-    
+  background-color: #fff;
+  position: relative;
+  max-width: 498px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .modal__form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__input {
@@ -90,49 +86,44 @@
 }
 
 .modal__radio-buttons {
-    border: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin: 0;
-    margin-bottom: 21px;
-    margin-top: 10px;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  margin-bottom: 21px;
+  margin-top: 10px;
 }
 
-
-
-.modal__submit-button{
-    background-image: url("../../assets/Add-button.svg");
-    border: none;
-    background-size: contain;
-    background-color: transparent;
-    width: 124px;
-    height: 36px;
-    
+.modal__submit-button {
+  background-image: url("../../assets/Add-button.svg");
+  border: none;
+  background-size: contain;
+  background-color: transparent;
+  width: 124px;
+  height: 36px;
 }
 
 .modal__legend {
-    margin: 0;
-    margin-bottom: 10px;
-    font-family: CabinetGrotesk;
-    font-weight: 700;
-    font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: CabinetGrotesk;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .modal__delete {
-    max-width: 101px;
-    max-height: 24px;
-    margin-left: 350px;
-    margin-top: -20px;
-    line-height: 24px;
-    color: red;
-    background-color: transparent;
-    border: none;
-    font-family: CabinetGrotesk;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    
+  max-width: 101px;
+  max-height: 24px;
+  margin-left: 350px;
+  margin-top: -20px;
+  line-height: 24px;
+  color: red;
+  background-color: transparent;
+  border: none;
+  font-family: CabinetGrotesk;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
 }
-
