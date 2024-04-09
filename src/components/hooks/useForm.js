@@ -11,4 +11,4 @@ const {value, name} = event.target;
   return {values, handleChange, setValues};
 }
 
-export default useForm
+export default useForm;
