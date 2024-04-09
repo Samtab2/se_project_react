@@ -1,9 +1,9 @@
-import "./AddItemModal.css"; 
+import "./AddItemModal.css";
 import ModalWithForm from "../ModalWIthForm/ModalWithForm";
-import { useForm } from "../../components/hooks/useForm";
+import { useForm } from "../../hooks/useForm";
 
 const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
-   const inputValues = {
+  const inputValues = {
     name: "",
     imageUrl: "",
     weather: "",
@@ -18,8 +18,6 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
     setValues(inputValues);
   };
 
-
- 
   return (
     <ModalWithForm
       title="New garment"
