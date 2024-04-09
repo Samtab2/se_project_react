@@ -1,4 +1,4 @@
-import { useEscape } from "../hooks/useEscape";
+import { useEscape } from "../../components/hooks/useEscape";
 import "./ModalWithForm.css";
 
 function ModalWithForm({

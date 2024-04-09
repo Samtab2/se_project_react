@@ -1,6 +1,6 @@
 import "./AddItemModal.css"; 
 import ModalWithForm from "../ModalWIthForm/ModalWithForm";
-import { useForm } from "../hooks/useForm"
+import { useForm } from "../../components/hooks/useForm";
 
 const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
    const inputValues = {
