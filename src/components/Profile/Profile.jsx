@@ -3,7 +3,7 @@ import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
 function Profile({ handleCardClick, clothingItems }) {
   const addItem = () => {
-    
+    handleCardClick();
   };
   return (
     <div className="profile">
@@ -13,6 +13,7 @@ function Profile({ handleCardClick, clothingItems }) {
         <ClothesSection
           clothingItems={clothingItems}
           handleCardClick={handleCardClick}
+          addItem={addItem}
         />
     </div>
   );

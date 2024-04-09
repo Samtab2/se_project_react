@@ -4,7 +4,7 @@
 }
 
 .toggle__switch-input {
-  margin-left: 700px;
+  margin-left: 770px;
   border-radius: 25px;
   border: 2px solid rgba(126, 126, 126, 1);
   width: 56px;
@@ -23,7 +23,7 @@
   text-align: center;
   cursor: pointer;
   position: absolute;
-  margin-left: 700px;
+  margin-left: 770px;
   transition: 0.4s ease-in-out;
 }
 
@@ -35,34 +35,28 @@
   left: 28px;
 }
 
-
-
 .switch__temp-C {
   position: absolute;
   top: -9px;
   left: 35px;
   line-height: 17.36px;
-  margin-left: 700px;
+  margin-left: 770px;
   cursor: pointer;
   color: white;
   font-family: "CabinetGrotesk";
   font-style: normal;
   font-weight: 700;
-  }
- 
-  
-
+}
 
 .switch__temp-F {
   position: absolute;
   top: -10px;
   left: 10px;
   line-height: 17.36px;
-  margin-left: 700px;
+  margin-left: 770px;
   color: white;
   cursor: pointer;
   font-family: "CabinetGrotesk";
   font-style: normal;
   font-weight: 700;
 }
-

@@ -10,7 +10,6 @@ function WeatherCard({ weatherData }) {
       option.condition === weatherData.condition
     );
   });
-  
 
   let weatherOption;
   if (!filteredOptions) {
@@ -20,16 +19,17 @@ function WeatherCard({ weatherData }) {
   }
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
-
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">{weatherData?.temp?.[currentTemperatureUnit]} &deg;
-        {currentTemperatureUnit === "F" ? "F" : "C"}</p>
+      <p className="weather-card__temp">
+        {weatherData?.temp?.[currentTemperatureUnit]} &deg;
+        {currentTemperatureUnit === "F" ? "F" : "C"}
+      </p>
       <img
         src={weatherOption?.url}
-        alt={`Card showing ${
-          weatherOption?.day ? "day" : "night"
-        } time ${weatherOption?.condition} weather`}
+        alt={`Card showing ${weatherOption?.day ? "day" : "night"} time ${
+          weatherOption?.condition
+        } weather`}
         className="weather-card__image"
       />
     </section>
