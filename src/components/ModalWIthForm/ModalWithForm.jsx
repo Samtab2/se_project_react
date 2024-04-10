@@ -7,9 +7,8 @@ function ModalWithForm({
   onClose,
   isOpen,
   onSubmit,
-  closeModal,
 }) {
-  useEscape(closeModal);
+  useEscape(onClose);
 
   {
     return (

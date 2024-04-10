@@ -1,9 +1,9 @@
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
-function Profile({ handleCardClick, clothingItems }) {
+function Profile({ handleCardClick, clothingItems, handleAddClick }) {
   const addItem = () => {
-    handleCardClick();
+    handleAddClick();
   };
   return (
     <div className="profile">
@@ -13,7 +13,7 @@ function Profile({ handleCardClick, clothingItems }) {
         <ClothesSection
           clothingItems={clothingItems}
           handleCardClick={handleCardClick}
-          addItem={addItem}
+          handleAddClick={addItem}
         />
     </div>
   );

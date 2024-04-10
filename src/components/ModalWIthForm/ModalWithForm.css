@@ -130,3 +130,8 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.modal__image {
+    width: 100%;
+    max-width: 498px;
+}

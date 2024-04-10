@@ -131,6 +131,36 @@
       "imageUrl": "https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTk4MTQ4NTkzMjI2MzU5OTk4/nike-lebron.webp",
       "weather": "warm",
       "_id": 23
+    },
+    {
+      "name": "Shoes",
+      "imageUrl": "https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTk4MTQ4NTkzMjI2MzU5OTk4/nike-lebron.webp",
+      "weather": "",
+      "_id": 24
+    },
+    {
+      "name": "Shoes",
+      "imageUrl": "https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTk4MTQ4NTkzMjI2MzU5OTk4/nike-lebron.webp",
+      "weather": "warm",
+      "_id": 25
+    },
+    {
+      "name": "Shoes",
+      "imageUrl": "https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTk4MTQ4NTkzMjI2MzU5OTk4/nike-lebron.webp",
+      "weather": "warm",
+      "_id": 26
+    },
+    {
+      "name": "Shoes",
+      "imageUrl": "https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTk4MTQ4NTkzMjI2MzU5OTk4/nike-lebron.webp",
+      "weather": "warm",
+      "_id": 27
+    },
+    {
+      "name": "Shoes",
+      "imageUrl": "https://www.si.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTk4MTQ4NTkzMjI2MzU5OTk4/nike-lebron.webp",
+      "weather": "warm",
+      "_id": 28
     }
   ]
 }
