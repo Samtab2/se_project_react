@@ -1,12 +1,8 @@
-
-
 .footer {
-    background-color: #f0f0f0;
-    padding: 20px;
-    text-align: left;
-    font-size: 14px;
-    line-height: 20px;
-    font-family: 'CabinetGrotesk';
-  }
-  
-
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "CabinetGrotesk";
+}

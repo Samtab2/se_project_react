@@ -1,14 +1,12 @@
 export const getweather = ({ latitude, longitude }, APIkey) => {
   const processServerResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  } else {
-    return Promise.reject("Error:  ${res.status}");
-  }
-};
-  
-  
-  
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject("Error:  ${res.status}");
+    }
+  };
+
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
   ).then(processServerResponse);
@@ -24,12 +22,10 @@ export const filterWeatherData = (data) => {
   result.condition = data.weather[0].main.toLowerCase();
   result.isDay = isDay(data.sys, Date.now());
   return result;
-  
-  
 };
 
-const isDay = ({sunrise, sunset }, now) => {
-  return  sunrise * 1000 < now && now < sunset * 1000
+const isDay = ({ sunrise, sunset }, now) => {
+  return sunrise * 1000 < now && now < sunset * 1000;
 };
 
 const getweatherType = (temperature) => {

@@ -10,11 +10,11 @@ function Profile({ handleCardClick, clothingItems, handleAddClick }) {
       <section className="profile__sidebar">
         <SideBar />
       </section>
-        <ClothesSection
-          clothingItems={clothingItems}
-          handleCardClick={handleCardClick}
-          handleAddClick={addItem}
-        />
+      <ClothesSection
+        clothingItems={clothingItems}
+        handleCardClick={handleCardClick}
+        handleAddClick={addItem}
+      />
     </div>
   );
 }

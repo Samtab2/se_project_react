@@ -1,16 +1,8 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
-import AddItemModal from "../AddItemModal/AddItemModal";
-import { useState } from "react";
 
-const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, addItem  }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick }) => {
   const profileCards = clothingItems ? clothingItems : [];
-  
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-  
 
   return (
     <div>

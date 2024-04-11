@@ -18,10 +18,9 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
     onAddItem(values);
   };
 
-    React.useEffect(() => {
-       setValues(inputValues);
-    }, [isOpen]);
-
+  React.useEffect(() => {
+    setValues(inputValues);
+  }, [isOpen]);
 
   return (
     <ModalWithForm
