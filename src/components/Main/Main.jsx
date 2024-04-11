@@ -32,8 +32,8 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
       <WeatherCard day={true} type="sunny" weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData?.temp?.[currentTemperatureUnit]} &deg;
-          {currentTemperatureUnit === "F" ? "F" : "C"} / You may want to wear:
+          Today is {temp} &deg;
+          {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">
           {filteredCards.map((item) => (

@@ -50,6 +50,7 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
           className="modal__input"
           name="imageUrl"
           id="imageUrl"
+          htmlFor="ImageUrl"
           placeholder="Image Url"
           value={imageUrl}
           onChange={handleChange}
