@@ -43,14 +43,13 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
           maxLength="30"
         />
       </label>
-      <label htmlFor="ImageUrl" id="ImageUrl" className="modal__label">
+      <label htmlFor="imageUrl" id="ImageUrl" className="modal__label">
         Image{" "}
         <input
           type="text"
           className="modal__input"
           name="imageUrl"
           id="imageUrl"
-          htmlFor="ImageUrl"
           placeholder="Image Url"
           value={imageUrl}
           onChange={handleChange}
