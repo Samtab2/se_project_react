@@ -21,7 +21,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
     } else {
       return "cold";
     }
-  }, [weatherData]);
+  }, [weatherData?.temp?.F]);
 
   const filteredCards = clothingItems.filter((item) => {
     return weatherType && item.weather === weatherType;
