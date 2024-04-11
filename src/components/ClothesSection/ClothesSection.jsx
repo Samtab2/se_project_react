@@ -30,12 +30,6 @@ const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, addIte
           />
         ))}
       </ul>
-
-      <AddItemModal
-        isModalOpen={isModalOpen}
-        toggleModal={toggleModal}
-        addItem={addItem}
-      />
     </div>
   );
 };
