@@ -225,6 +225,7 @@ function App() {
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
+          <CurrentUserContext.Provider value={userData}>
         <div className="page__content">
           <Header
             handleAddClick={handleAddClick}
@@ -235,6 +236,7 @@ function App() {
             name={userData.name}
             avatar={userData.avatar}
           />
+          </div>
           <Routes>
             <Route
               path="/"
@@ -246,7 +248,7 @@ function App() {
                 />
               }
             />
-
+            <Route element={<ProtectedRoute isLoggedIn={isLoggedIn} />}>
             <Route
               path="/profile"
               element={
@@ -262,8 +264,8 @@ function App() {
                 />
               }
             />
+            </Route>
           </Routes>
-        </div>
         <AddItemModal
           onClose={onClose}
           isOpen={activeModal === "add-garment"}
@@ -293,6 +295,7 @@ function App() {
           onLogin={handleSignIn}
         />
         <Footer />
+      </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );
