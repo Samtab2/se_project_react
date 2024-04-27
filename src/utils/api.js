@@ -3,6 +3,7 @@ class Api {
     // constructor body
     this.baseUrl = baseUrl;
     this._headers = headers;
+    
   }
 
   _checkResponse(res) {
@@ -19,10 +20,13 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addItem({ name, imageUrl, weather }) {
+  addItem({ name, imageUrl, weather }, token) {
     return fetch(`${this.baseUrl}/items`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name,
         imageUrl,
@@ -31,10 +35,33 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  deleteItem(id) {
+  deleteItem(id, token) {
     return fetch(`${this.baseUrl}/items/${id}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      }
+    }).then(this._checkResponse);
+  }
+
+  addLike(id, token) {
+    return fetch(`${this.baseUrl}/items/${id}/likes`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    }).then(this._checkResponse);
+  }
+
+  removeLike(id, token) {
+    return fetch(`${this.baseUrl}/items/${id}/likes`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
     }).then(this._checkResponse);
   }
 }
