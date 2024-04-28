@@ -4,11 +4,12 @@ import React from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, handleCardLike  }) => {
+  
+  const currentUser = React.useContext(CurrentUserContext);
+
   const profileCards = clothingItems.filter(
     (item) => item.owner === currentUser._id
   );
-
-  const currentUser = React.useContext(CurrentUserContext);
 
   return (
     <div>
