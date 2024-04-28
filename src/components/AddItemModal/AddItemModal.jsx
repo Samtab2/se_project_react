@@ -3,12 +3,16 @@ import ModalWithForm from "../ModalWIthForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 import React from "react";
 
+
 const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
   const inputValues = {
     name: "",
     imageUrl: "",
     weather: "",
   };
+
+
+
   const { values, handleChange, setValues } = useForm(inputValues);
 
   const { name, imageUrl, weather } = values;

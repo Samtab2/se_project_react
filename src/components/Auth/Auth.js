@@ -55,7 +55,6 @@ class Auth {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
       },

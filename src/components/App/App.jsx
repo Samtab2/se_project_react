@@ -41,14 +41,14 @@ function App() {
   const [userData, setUserData] = useState({
     name: "",
     avatar: "",
-    email: "",
-    password: "",
+    _id: "",
+    token: "",
   });
   const [currentUser, setCurrentUser] = useState({
     name: "",
     avatar: "",
-    email: "",
-    password: "",
+    _id: "",
+    token: "",
   });
 
   const navigate = useNavigate();
@@ -81,9 +81,8 @@ function App() {
   const handleSignUp = ({ name, avatar, email, password }) => {
     auth
       .signUp({ name, avatar, email, password })
-      .then(() => {
-        setIsLoggedIn(true);
-        setCurrentUser({ name, avatar, email, password });
+      .then((res) => {
+        setUserState({ name: res.name, avatar: res.avatar, _id: res._id });
         navigate("/profile");
       })
       .catch((err) => {
@@ -98,13 +97,12 @@ function App() {
     }
     auth
       .signIn({ email, password })
-      .then((res) => {
-        if (res.token) {
-          setToken(res.token);
-          setUserData(res.user);
-          setIsLoggedIn(true);
-          navigate("/profile");
-        }
+      .then((data) => {
+         localStorage.setItem("jwt", data.token).
+         getUser(data.token).then((user) => {
+           setCurrentUser(user, data.token, true);
+           navigate("/profile");
+         })
       })
       .catch((err) => {
         console.error(err.message);
@@ -112,12 +110,11 @@ function App() {
       .finally(onClose);
   };
 
-  const handleUpdateUser = ({ name, avatar }) => {
-    const token = getToken();
+  const handleUpdateUser = ({ name, avatar }, token) => {
     auth
       .updateUser({ name, avatar }, token)
-      .then((data) => {
-        setCurrentUser(data);
+      .then((res) => {
+        setCurrentUser(res.user);
       })
       .catch((err) => {
         console.error(err.message);
@@ -125,9 +122,27 @@ function App() {
       .finally(onClose);
   };
 
-  const handleCardLike = (id) => {
+  const handleCheckToken = () => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+       return  auth.getUser(token).then((user) => {
+        console.log(user);
+        setUserState(user, token, true);
+    return user;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      }
+
+    return token;
+    }
+  useEffect(() => {
+    handleCheckToken();
+  }, []);
+
+  const handleCardLike = (id, token) => {
     console.log(id);
-    const token = getToken();
     !isLiked
       ? api
           .addLike(id, token)
@@ -149,9 +164,9 @@ function App() {
           .catch((err) => console.log(err));
   };
 
-  const handleAddItemSubmit = (item) => {
+  const handleAddItemSubmit = (item, token) => {
     api
-      .addItem(item)
+      .addItem(item, token)
       .then((res) => {
         setClothingItems([res, ...clothingItems]);
         onClose();
@@ -164,14 +179,19 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
+  const setUserState = (user,token) => {
+    setUserData({ name: user.name, avatar: user.avatar, _id: user._id, token });
+  };
+
   const handleLogOff = () => {
+    localStorage.removeItem("jwt")
     navigate("/");
     setIsLoggedIn(false);
   };
 
-  const handleItemDelete = () => {
+  const handleItemDelete = (token) => {
     api
-      .deleteItem(selectedCard._id)
+      .deleteItem(selectedCard._id, token)
       .then(() => {
         const newClothingItems = clothingItems.filter(
           (item) => item._id !== selectedCard._id
@@ -236,7 +256,6 @@ function App() {
             name={userData.name}
             avatar={userData.avatar}
           />
-          </div>
           <Routes>
             <Route
               path="/"
@@ -260,7 +279,7 @@ function App() {
                   avatar={userData.avatar}
                   handleEditProfileModal={handleEditProfileModal}
                   handleLogOff={handleLogOff}
-                  onLikeClick={handleCardLike}
+                  handleCardLike={handleCardLike}
                 />
               }
             />
@@ -294,6 +313,7 @@ function App() {
           isOpen={activeModal === "sign-in"}
           onLogin={handleSignIn}
         />
+        </div>
         <Footer />
       </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>

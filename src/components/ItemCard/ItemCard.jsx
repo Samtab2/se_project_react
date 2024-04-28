@@ -1,11 +1,13 @@
 import "./ItemCard.css";
 
-function ItemCard({ item, handleCardClick }) {
+function ItemCard({ item, handleCardClick, handleCardLike }) {
   const handleClick = () => {
     handleCardClick(item);
   };
 
-  
+  const handleLike = () => {
+    handleCardLike(item);
+  };
 
   return (
     <li className="card">
@@ -16,6 +18,11 @@ function ItemCard({ item, handleCardClick }) {
         src={item.imageUrl}
         alt={item.name}
       />
+
+      <button
+        onClick={handleLike}
+        type="button"
+        className="card__like-button"></button>
     </li>
   );
 }

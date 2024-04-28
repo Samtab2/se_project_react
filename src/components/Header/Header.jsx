@@ -3,7 +3,6 @@ import logo from "../../assets/Logo.svg";
 import logo2 from "../../assets/Avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
-
 function Header({
   handleAddClick,
   weatherData,
@@ -12,7 +11,7 @@ function Header({
     month: "long",
     day: "numeric",
   });
-
+   
   return (
     
     <header className="header">

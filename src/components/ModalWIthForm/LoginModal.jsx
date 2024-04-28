@@ -22,8 +22,8 @@ const LoginModal = ({ onClose, isOpen, onLogin }) => {
 
   return (
     <ModalWithForm
-      title="Sign in"
-      buttonText="Sign in"
+      title="Log in"
+      buttonText="Log in"
       buttonText2="or Sign Up"
       onClose={onClose}
       isOpen={isOpen}
