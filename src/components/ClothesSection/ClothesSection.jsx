@@ -10,7 +10,6 @@ const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, handle
   const profileCards = clothingItems.filter(
     (item) => item.owner === currentUser._id
   );
-
   return (
     <div>
       <div className="clothes-section__list">
