@@ -53,7 +53,7 @@ function App() {
 
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
