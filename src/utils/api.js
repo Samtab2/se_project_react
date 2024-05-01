@@ -17,6 +17,8 @@ class Api {
   getItems() {
     return fetch(`${this.baseUrl}/items`, {
       method: "GET",
+      headers: {
+        "Content-Type": "application/json",}
     }).then(this._checkResponse);
   }
 
