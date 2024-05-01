@@ -98,14 +98,11 @@ function App() {
     auth
       .signIn({ email, password })
       .then((data) => {
-        localStorage
-          .setItem("jwt", data.token);
-        auth
-          .getUser(data.token)
-          .then((user) => {
-            setCurrentUser(user, data.token, true);
-            navigate("/profile");
-          });
+        localStorage.setItem("jwt", data.token);
+        auth.getUser(data.token).then((user) => {
+          setCurrentUser(user, data.token, true);
+          navigate("/profile");
+        });
       })
       .catch((err) => {
         console.error(err.message);
