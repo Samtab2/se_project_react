@@ -66,15 +66,15 @@ function App() {
     setActiveModal("");
   };
 
-  const handleEditProfileModal = () => {
+  const handleEditProfileModalClick = () => {
     setActiveModal("edit-profile");
   };
 
-  const handleSignInModal = () => {
+  const handleSignInModalClick = () => {
     setActiveModal("sign-in");
   };
 
-  const handleSignUpModal = () => {
+  const handleSignUpModalClick = () => {
     setActiveModal("sign-up");
   };
 
@@ -258,8 +258,8 @@ function App() {
             <Header
               handleAddClick={handleAddClick}
               weatherData={weatherData}
-              handleSignUpModal={handleSignUpModal}
-              handleSignInModal={handleSignInModal}
+              onRegisterClick={handleSignUpModalClick}
+              onLoginClick={handleSignInModalClick}
               isLoggedIn={isLoggedIn}
               name={userData.name}
               avatar={userData.avatar}
@@ -285,7 +285,7 @@ function App() {
                       clothingItems={clothingItems}
                       name={userData.name}
                       avatar={userData.avatar}
-                      handleEditProfileModal={handleEditProfileModal}
+                      handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
                       handleCardLike={handleCardLike}
                     />
