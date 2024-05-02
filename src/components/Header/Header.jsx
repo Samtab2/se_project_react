@@ -9,6 +9,8 @@ function Header({
   isLoggedIn,
   name,
   avatar,
+  onLoginClick,
+  onRegisterClick,
 }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -64,7 +66,7 @@ function Header({
           <button
             onClick={handleSignUpModalClick}
             type="text"
-            className="header__login-btn">
+            className="header__signup-btn">
             Sign up{" "}
           </button>
           <button onClick={handleSignInModalClick} type="text" className="header__login-btn">

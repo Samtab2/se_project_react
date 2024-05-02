@@ -4,7 +4,7 @@
 }
 
 .toggle__switch-input {
-  margin-left: 770px;
+  margin-left: 950px;
   border-radius: 25px;
   border: 2px solid rgba(126, 126, 126, 1);
   width: 56px;
@@ -23,7 +23,7 @@
   text-align: center;
   cursor: pointer;
   position: absolute;
-  margin-left: 770px;
+  margin-left: 950px;
   transition: 0.4s ease-in-out;
 }
 
@@ -40,7 +40,7 @@
   top: -9px;
   left: 35px;
   line-height: 17.36px;
-  margin-left: 770px;
+  margin-left: 950px;
   cursor: pointer;
   color: white;
   font-family: "CabinetGrotesk";
@@ -53,7 +53,7 @@
   top: -10px;
   left: 10px;
   line-height: 17.36px;
-  margin-left: 770px;
+  margin-left: 950px;
   color: white;
   cursor: pointer;
   font-family: "CabinetGrotesk";
