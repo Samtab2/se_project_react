@@ -81,7 +81,7 @@ function App() {
   };
 
   const openConfirmationModal = () => {
-    setIsConfirmationModalOpen(true);
+    isConfirmationModalOpen(true);
     setIsConfirmationModalOpen(false);
   };
 
