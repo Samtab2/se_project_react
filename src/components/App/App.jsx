@@ -18,6 +18,7 @@ import LoginModal from "../ModalWIthForm/LoginModal";
 import RegisterModal from "../ModalWIthForm/RegisterModal";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import DeleteConfirmationModal from "../DeleteConfimationModal/DeleteConfirmationModal";
 // Create an instance of the Api class
 const api = new Api({
   baseUrl: "http://localhost:3001",
@@ -38,6 +39,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
   const [userData, setUserData] = useState({
     name: "",
     avatar: "",
@@ -76,6 +78,16 @@ function App() {
 
   const handleSignUpModalClick = () => {
     setActiveModal("sign-up");
+  };
+
+  const openConfirmationModal = () => {
+    setIsConfirmationModalOpen(true);
+    setIsConfirmationModalOpen(false);
+  };
+
+  
+  const handleCardLikeClick = (card) => {
+    setIsLiked(card.isLiked);
   };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
@@ -272,6 +284,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
@@ -287,7 +300,7 @@ function App() {
                       avatar={userData.avatar}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
-                      handleCardLike={handleCardLike}
+                      onCardLike={handleCardLikeClick}
                     />
                   }
                 />
@@ -300,10 +313,10 @@ function App() {
               clothingItems={clothingItems}
             />
             <ItemModal
-              onDelete={handleItemDelete}
               card={selectedCard}
               onClose={onClose}
               isOpen={activeModal === "preview"}
+              onDelete={openConfirmationModal}
             />
             <EditProfileModal
               isOpen={activeModal === "edit-profile"}
@@ -321,6 +334,13 @@ function App() {
               isOpen={activeModal === "sign-in"}
               onLogin={handleSignIn}
             />
+            {isConfirmationModalOpen && (
+              <DeleteConfirmationModal
+                cardToDelete={selectedCard}
+                onCancel={() => setIsConfirmationModalOpen(false)}
+                onConfirm={handleItemDelete}
+              />
+            )}
           </div>
           <Footer />
         </CurrentUserContext.Provider>

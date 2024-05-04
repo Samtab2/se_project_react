@@ -25,7 +25,7 @@ const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, handle
             key={item._id}
             item={item}
             handleCardClick={handleCardClick}
-            onLikeClick={handleCardLike}
+            onCardLike={handleCardLike}
           />
         ))}
       </ul>
