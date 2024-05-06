@@ -210,7 +210,8 @@ function App() {
     setCurrentUser(null);
   };
 
-  const handleItemDelete = (token) => {
+  const handleItemDelete = () => {
+    const token = localStorage.getItem("jwt");
     api
       .deleteItem(selectedCard._id, token)
       .then(() => {
