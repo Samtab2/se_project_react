@@ -2,13 +2,11 @@ import "./Header.css";
 import logo from "../../assets/Avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 function Header({
   handleAddClick,
   weatherData,
-  isLoggedIn,
-  name,
-  avatar,
   onLoginClick,
   onRegisterClick,
 }) {
@@ -17,14 +15,15 @@ function Header({
     day: "numeric",
   });
 
-
   const handleSignInModalClick = () => {
     onRegisterClick();
-  }
+  };
 
   const handleSignUpModalClick = () => {
     onLoginClick();
-  }
+  };
+
+  const { isLoggedIn, name, avatar } = useContext(CurrentUserContext);
 
   return (
     <header className="header">
@@ -69,7 +68,10 @@ function Header({
             className="header__signup-btn">
             Sign up{" "}
           </button>
-          <button onClick={handleSignInModalClick} type="text" className="header__login-btn">
+          <button
+            onClick={handleSignInModalClick}
+            type="text"
+            className="header__login-btn">
             Log in{" "}
           </button>
         </>

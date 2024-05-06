@@ -112,6 +112,7 @@ function App() {
         localStorage.setItem("jwt", data.token);
         auth.getUser(data.token).then((user) => {
           setCurrentUser(user, data.token, true);
+          setIsLoggedIn(true);
           navigate("/profile");
         });
       })
@@ -205,7 +206,7 @@ function App() {
     navigate("/");
     setIsLoggedIn(false);
     setUserState({ name: "", avatar: "", _id: "" });
-    setCurrentUser({ name: "", avatar: "", _id: "" });
+    setCurrentUser(null);
   };
 
   const handleItemDelete = (token) => {
