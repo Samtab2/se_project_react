@@ -1,6 +1,9 @@
+import { useEscape } from "../../hooks/useEscape";
 import "./DeleteConfirmationModal.css";
 
-function DeleteConfirmationModal({ onDelete, onCancel, onConfirm, isOpen }) {
+function DeleteConfirmationModal({ onDelete, onCancel, onConfirm, isOpen, onClose }) {
+
+  useEscape(onClose);
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">

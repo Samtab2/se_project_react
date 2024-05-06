@@ -337,8 +337,9 @@ function App() {
             />
               <DeleteConfirmationModal
                 onDelete={selectedCard}
-                onClick={openConfirmationModal}
+                onCancel={onClose}
                 onConfirm={handleItemDelete}
+                isOpen={isConfirmationModalOpen}
               />
           </div>
           <Footer />
