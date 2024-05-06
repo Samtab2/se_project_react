@@ -2,13 +2,21 @@ import "./DeleteConfirmationModal.css"
 
 
 
-function DeleteConfirmationModal({ cardToDelete, onCancel, onConfirm }) {
+function DeleteConfirmationModal({ onDelete, onCancel, onConfirm }) {
+
+   const handleDelete = (e) => {
+     e.preventDefault();
+     onConfirm();
+   };
+
+
+
     return (
      <div className="modal-overlay">
      <div className="modal">
      <div className="modal__content">
      <p className="modal__text">
-     Are you sure you want to delete {cardToDelete.name}?
+     Are you sure you want to delete {onDelete.name}?
      </p>
      <div className="modal__buttons">
      <button
@@ -21,7 +29,7 @@ function DeleteConfirmationModal({ cardToDelete, onCancel, onConfirm }) {
      <button
      type="button"
      className="modal__button"
-     onClick={onConfirm}
+     onClick={handleDelete}
      >
      Delete
      </button>

@@ -66,6 +66,7 @@ function App() {
 
   const onClose = () => {
     setActiveModal("");
+
   };
 
   const handleEditProfileModalClick = () => {
@@ -334,13 +335,11 @@ function App() {
               isOpen={activeModal === "sign-in"}
               onLogin={handleSignIn}
             />
-            {isConfirmationModalOpen && (
               <DeleteConfirmationModal
-                cardToDelete={selectedCard}
-                onCancel={() => setIsConfirmationModalOpen(false)}
+                onDelete={selectedCard}
+                onClick={openConfirmationModal}
                 onConfirm={handleItemDelete}
               />
-            )}
           </div>
           <Footer />
         </CurrentUserContext.Provider>
