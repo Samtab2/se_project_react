@@ -299,7 +299,7 @@ function App() {
                       avatar={userData.avatar}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
-                      onCardLike={handleCardLikeClick}
+                      handleCardLikeClick={handleCardLikeClick}
                     />
                   }
                 />
@@ -339,6 +339,7 @@ function App() {
               onCancel={onClose}
               onConfirm={handleItemDelete}
               isOpen={isConfirmationModalOpen}
+              onClose={onClose}
             />
           </div>
           <Footer />
