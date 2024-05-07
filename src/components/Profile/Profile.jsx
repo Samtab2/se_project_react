@@ -1,7 +1,10 @@
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
+
 function Profile({ handleCardClick, clothingItems, handleAddClick, userData, handleEditProfileModalClick, handleLogOff, handleCardLikeClick }) {
+
+
   const addItem = () => {
     handleAddClick();
   };
@@ -10,6 +13,7 @@ function Profile({ handleCardClick, clothingItems, handleAddClick, userData, han
       <section className="profile__sidebar">
         <SideBar 
           name={userData}
+          avatar={userData}
           handleEditProfileModalClick={handleEditProfileModalClick}
           handleLogOff={handleLogOff}
         />

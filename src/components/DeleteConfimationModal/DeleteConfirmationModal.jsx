@@ -1,9 +1,9 @@
-import { useEscape } from "../../hooks/useEscape";
+
 import "./DeleteConfirmationModal.css";
 
-function DeleteConfirmationModal({ onDelete, onCancel, onConfirm, isOpen, onClose }) {
+function DeleteConfirmationModal({ onDelete, onClose, onConfirm, isOpen }) {
 
-  useEscape(onClose);
+
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
@@ -11,7 +11,7 @@ function DeleteConfirmationModal({ onDelete, onCancel, onConfirm, isOpen, onClos
           Are you sure you want to delete {onDelete.name}?
         </p>
         <div className="modal__buttons">
-          <button type="button" className="modal__button" onClick={onCancel}>
+          <button type="button" className="modal__button"  onClick={onClose}>
             Cancel
           </button>
           <button type="button" className="modal__button" onClick={onConfirm}>

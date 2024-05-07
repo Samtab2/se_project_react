@@ -52,7 +52,6 @@ function App() {
     _id: "",
     token: "",
   });
-
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -66,7 +65,6 @@ function App() {
 
   const onClose = () => {
     setActiveModal("");
-
   };
 
   const handleEditProfileModalClick = () => {
@@ -85,7 +83,6 @@ function App() {
     setIsConfirmationModalOpen(true);
   };
 
-  
   const handleCardLikeClick = (card) => {
     setIsLiked(card.isLiked);
   };
@@ -186,7 +183,7 @@ function App() {
     api
       .addItem(item, token)
       .then((res) => {
-        setClothingItems([res, ...clothingItems]);
+        setClothingItems((prevClothingItems) => [res.data, ...prevClothingItems]);
         onClose();
       })
       .catch(console.error);
@@ -322,9 +319,10 @@ function App() {
             />
             <EditProfileModal
               isOpen={activeModal === "edit-profile"}
-              onUpdateUser={handleUpdateUser}
+              updateUser={handleUpdateUser}
               name={userData.name}
               avatar={userData.avatar}
+              onClose={onClose}
             />
             <RegisterModal
               onClose={onClose}
@@ -336,12 +334,12 @@ function App() {
               isOpen={activeModal === "sign-in"}
               onLogin={handleSignIn}
             />
-              <DeleteConfirmationModal
-                onDelete={selectedCard}
-                onCancel={onClose}
-                onConfirm={handleItemDelete}
-                isOpen={isConfirmationModalOpen}
-              />
+            <DeleteConfirmationModal
+              onDelete={selectedCard}
+              onCancel={onClose}
+              onConfirm={handleItemDelete}
+              isOpen={isConfirmationModalOpen}
+            />
           </div>
           <Footer />
         </CurrentUserContext.Provider>
