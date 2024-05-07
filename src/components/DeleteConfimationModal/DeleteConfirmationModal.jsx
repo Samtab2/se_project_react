@@ -1,7 +1,7 @@
 
 import "./DeleteConfirmationModal.css";
 
-function DeleteConfirmationModal({ onDelete, onClose, onConfirm, isOpen }) {
+function DeleteConfirmationModal({ onDelete, onCancel, onConfirm, isOpen }) {
 
 
   return (
@@ -11,7 +11,7 @@ function DeleteConfirmationModal({ onDelete, onClose, onConfirm, isOpen }) {
           Are you sure you want to delete {onDelete.name}?
         </p>
         <div className="modal__buttons">
-          <button type="button" className="modal__button"  onClick={onClose}>
+          <button type="button" className="modal__button"  onClick={onCancel}>
             Cancel
           </button>
           <button type="button" className="modal__button" onClick={onConfirm}>
