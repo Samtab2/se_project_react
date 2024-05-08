@@ -55,6 +55,7 @@ function App() {
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedLoading, setIsLoggedLoading] = useState(true);
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -254,11 +255,16 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const jwt = getToken();
-    if (!jwt) {
-      return;
-    }
-  });
+     const token = localStorage.getItem("jwt");
+     handleCheckToken(token).then(() => {
+       setIsLoggedIn(true);
+     }).catch((err) => {
+       console.error(err);
+     }).finally(() => {
+       setIsLoggedLoading(false);
+     });
+  }, []);
+
 
   return (
     <div className="page">
@@ -287,10 +293,8 @@ function App() {
                   />
                 }
               />
-              <Route element={<ProtectedRoute isLoggedIn={isLoggedIn} />}>
-                <Route
+              <Route element={<ProtectedRoute isLoggedIn={isLoggedIn}>
                   path="/profile"
-                  element={
                     <Profile
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
@@ -301,10 +305,10 @@ function App() {
                       handleLogOff={handleLogOff}
                       handleCardLikeClick={handleCardLikeClick}
                     />
+                    </ProtectedRoute>
                   }
-                />
-              </Route>
-            </Routes>
+                  ></Route>
+                  </Routes>
             <AddItemModal
               onClose={onClose}
               isOpen={activeModal === "add-garment"}
