@@ -55,7 +55,7 @@ function App() {
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoggedLoading, setIsLoggedLoading] = useState(true);
+  const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -184,7 +184,10 @@ function App() {
     api
       .addItem(item, token)
       .then((res) => {
-        setClothingItems((prevClothingItems) => [res.data, ...prevClothingItems]);
+        setClothingItems((prevClothingItems) => [
+          res.data,
+          ...prevClothingItems,
+        ]);
         onClose();
       })
       .catch(console.error);
@@ -255,16 +258,18 @@ function App() {
   }, []);
 
   useEffect(() => {
-     const token = localStorage.getItem("jwt");
-     handleCheckToken(token).then(() => {
-       setIsLoggedIn(true);
-     }).catch((err) => {
-       console.error(err);
-     }).finally(() => {
-       setIsLoggedLoading(false);
-     });
+    const token = localStorage.getItem("jwt");
+    handleCheckToken(token)
+      .then(() => {
+        setIsLoggedIn(true);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsLoggedInLoading(false);
+      });
   }, []);
-
 
   return (
     <div className="page">
@@ -293,8 +298,12 @@ function App() {
                   />
                 }
               />
-              <Route element={<ProtectedRoute isLoggedIn={isLoggedIn}>
-                  path="/profile"
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute
+                    isLoggedIn={isLoggedIn}
+                    isLoggedInLoading={isLoggedInLoading}>
                     <Profile
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
@@ -305,10 +314,9 @@ function App() {
                       handleLogOff={handleLogOff}
                       handleCardLikeClick={handleCardLikeClick}
                     />
-                    </ProtectedRoute>
-                  }
-                  ></Route>
-                  </Routes>
+                  </ProtectedRoute>
+                }></Route>
+            </Routes>
             <AddItemModal
               onClose={onClose}
               isOpen={activeModal === "add-garment"}
