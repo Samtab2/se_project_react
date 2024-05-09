@@ -1,8 +1,8 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-function ProtectedRoute({ isLoggedIn, isLoggedInLoading }) {
+function ProtectedRoute({ isLoggedIn, isLoggedInLoading, children }) {
   if (isLoggedInLoading) return null;
-  return isLoggedIn ? <Outlet /> : <Navigate to="/" />;
+  return isLoggedIn ? children : <Navigate to="/" />;
 }
 
 export default ProtectedRoute;

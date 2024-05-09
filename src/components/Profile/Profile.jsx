@@ -22,7 +22,7 @@ function Profile({ handleCardClick, clothingItems, handleAddClick, currentUser, 
         clothingItems={clothingItems}
         handleCardClick={handleCardClick}
         handleAddClick={addItem}
-        onCardLike={handleCardLikeClick}
+        handleCardLikeClick={handleCardLikeClick}
       />
     </div>
   );
