@@ -86,7 +86,7 @@ function App() {
     auth
       .signUp({ name, avatar, email, password })
       .then((res) => {
-        setUserState({ name: res.name, avatar: res.avatar, _id: res._id });
+        setCurrentUser({ name: res.name, avatar: res.avatar, _id: res._id });
         navigate("/profile");
       })
       .catch((err) => {
@@ -104,7 +104,7 @@ function App() {
       .then((data) => {
         localStorage.setItem("jwt", data.token);
         auth.getUser(data.token).then((user) => {
-          setCurrentUser(user, data.token, true);
+          setCurrentUser(user)
           setIsLoggedIn(true);
           navigate("/profile");
         });
@@ -134,8 +134,8 @@ function App() {
       return auth
         .getUser(token)
         .then((user) => {
+          setCurrentUser(user);
           console.log(user);
-          setUserState(user, token, true);
           setIsLoggedIn(true);
           return user;
         })
@@ -192,17 +192,12 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const setUserState = (user, token) => {
-    localStorage.setItem("jwt", token);
-    setCurrentUser({ name: user.name, avatar: user.avatar, _id: user._id });
-  };
+
 
   const handleLogOff = () => {
     localStorage.removeItem("jwt");
     navigate("/");
     setIsLoggedIn(false);
-    setUserState({ name: "", avatar: "", _id: "" });
-    setCurrentUser(null);
   };
 
   const handleItemDelete = () => {

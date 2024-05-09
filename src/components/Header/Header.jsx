@@ -15,13 +15,8 @@ function Header({
     day: "numeric",
   });
 
-  const handleSignInModalClick = () => {
-    onRegisterClick();
-  };
 
-  const handleSignUpModalClick = () => {
-    onLoginClick();
-  };
+  
 
   const { isLoggedIn, name, avatar } = useContext(CurrentUserContext);
 
@@ -63,16 +58,16 @@ function Header({
       ) : (
         <>
           <button
-            onClick={handleSignUpModalClick}
-            type="text"
-            className="header__signup-btn">
-            Sign up{" "}
-          </button>
-          <button
-            onClick={handleSignInModalClick}
+            onClick={onLoginClick}
             type="text"
             className="header__login-btn">
             Log in{" "}
+          </button>
+          <button
+            onClick={onRegisterClick}
+            type="text"
+            className="header__signup-btn">
+            Sign up{" "}
           </button>
         </>
       )}
