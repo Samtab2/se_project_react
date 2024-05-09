@@ -9,7 +9,6 @@ function Header({
   weatherData,
   onLoginClick,
   onRegisterClick,
-  name,
   avatar,
 }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -44,12 +43,12 @@ function Header({
           </div>
           <Link to="/profile" className="header__profile-link">
             <div className="header__user-container">
-              <button className="header__username">{name}</button>
+              <button className="header__username">{currentUser.name}</button>
             </div>
           </Link>
           {avatar ? (
             <Link to="/profile">
-              <img className="header__avatar" alt="avatar" src={avatar} />
+              <img className="header__avatar" alt="avatar" src={currentUser.avatar} />
             </Link>
           ) : (
             <>

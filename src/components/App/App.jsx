@@ -251,12 +251,12 @@ function App() {
       return;
     }
   });
- 
+
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
-        <CurrentUserContext.Provider value={currentUser}>
+        <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
           <div className="page__content">
             <Header
               handleAddClick={handleAddClick}
