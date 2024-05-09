@@ -18,7 +18,7 @@ function Header({
 
   
 
-  const { isLoggedIn, name, avatar } = useContext(CurrentUserContext);
+  const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
 
   return (
     <header className="header">
