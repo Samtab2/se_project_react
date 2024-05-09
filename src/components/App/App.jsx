@@ -104,7 +104,7 @@ function App() {
       .then((data) => {
         localStorage.setItem("jwt", data.token);
         auth.getUser(data.token).then((user) => {
-          setCurrentUser(user)
+          setCurrentUser(user);
           setIsLoggedIn(true);
           navigate("/profile");
         });
@@ -141,7 +141,8 @@ function App() {
         })
         .catch((err) => {
           console.error(err);
-        });
+        })
+        .finally(() => setIsLoggedInLoading(false));
     }
 
     return token;
@@ -191,8 +192,6 @@ function App() {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
-
-
 
   const handleLogOff = () => {
     localStorage.removeItem("jwt");
@@ -247,18 +246,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    handleCheckToken(token)
-      .then(() => {
-        setIsLoggedIn(true);
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        setIsLoggedInLoading(false);
-      });
-  }, []);
+    const jwt = getToken();
+    if (!jwt) {
+      return;
+    }
+  });
 
   return (
     <div className="page">
