@@ -251,7 +251,7 @@ function App() {
       return;
     }
   });
- debugger
+ 
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
