@@ -17,7 +17,9 @@
 }
 
 .sidebar__buttons {
-  margin-top: 50px;
+  margin-top: 40px;
+  width: 157px;
+  height: 25px;
 }
 
 .sidebar__edit-profile-btn {
@@ -26,5 +28,33 @@
   color: #000000;
   font-family: "CabinetGrotesk";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24.8px;
+  background-color: transparent;
+  border: none;
+  margin-left: -9px;
+  margin-bottom: 10px;
+}
+
+.sidebar__edit-profile-btn:hover {
+  cursor: pointer;
+}
+
+.sidebar__log-out-btn {
+  width: 157px;
+  height: 25px;
+  color: #000000;
+  font-family: "CabinetGrotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24.8px;
+  background-color: transparent;
+  border: none;
+  margin-left: -50px;
+}
+
+.sidebar__log-out-btn:hover {
+  cursor: pointer;
 }
