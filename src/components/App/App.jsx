@@ -8,7 +8,7 @@ import { getweather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/api";
 import EditProfileModal from "../ModalWIthForm/EditProfileModal";
@@ -40,12 +40,6 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
-  const [userData, setUserData] = useState({
-    name: "",
-    avatar: "",
-    _id: "",
-    token: "",
-  });
   const [currentUser, setCurrentUser] = useState({
     name: "",
     avatar: "",
@@ -199,7 +193,7 @@ function App() {
   };
 
   const setUserState = (user, token) => {
-    setUserData({ name: user.name, avatar: user.avatar, _id: user._id, token });
+    localStorage.setItem("jwt", token);
     setCurrentUser({ name: user.name, avatar: user.avatar, _id: user._id });
   };
 
@@ -275,7 +269,7 @@ function App() {
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
-        <CurrentUserContext.Provider value={userData}>
+        <CurrentUserContext.Provider value={currentUser}>
           <div className="page__content">
             <Header
               handleAddClick={handleAddClick}
@@ -283,8 +277,8 @@ function App() {
               onRegisterClick={handleSignUpModalClick}
               onLoginClick={handleSignInModalClick}
               isLoggedIn={isLoggedIn}
-              name={userData.name}
-              avatar={userData.avatar}
+              name={currentUser.name}
+              avatar={currentUser.avatar}
             />
             <Routes>
               <Route
@@ -308,8 +302,8 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
-                      name={userData.name}
-                      avatar={userData.avatar}
+                      name={currentUser.name}
+                      avatar={currentUser.avatar}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
                       handleCardLikeClick={handleCardLikeClick}
@@ -332,8 +326,8 @@ function App() {
             <EditProfileModal
               isOpen={activeModal === "edit-profile"}
               updateUser={handleUpdateUser}
-              name={userData.name}
-              avatar={userData.avatar}
+              name={currentUser.name}
+              avatar={currentUser.avatar}
               onClose={onClose}
             />
             <RegisterModal

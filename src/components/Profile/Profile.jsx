@@ -2,7 +2,7 @@ import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
 
-function Profile({ handleCardClick, clothingItems, handleAddClick, userData, handleEditProfileModalClick, handleLogOff, handleCardLikeClick }) {
+function Profile({ handleCardClick, clothingItems, handleAddClick, currentUser, handleEditProfileModalClick, handleLogOff, handleCardLikeClick }) {
 
 
   const addItem = () => {
@@ -12,8 +12,8 @@ function Profile({ handleCardClick, clothingItems, handleAddClick, userData, han
     <div className="profile">
       <section className="profile__sidebar">
         <SideBar 
-          name={userData}
-          avatar={userData}
+          name={currentUser}
+          avatar={currentUser}
           handleEditProfileModalClick={handleEditProfileModalClick}
           handleLogOff={handleLogOff}
         />
