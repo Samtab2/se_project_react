@@ -264,8 +264,8 @@ function App() {
               onRegisterClick={handleSignUpModalClick}
               onLoginClick={handleSignInModalClick}
               isLoggedIn={isLoggedIn}
-              name={currentUser.name}
-              avatar={currentUser.avatar}
+              name={currentUser}
+              avatar={currentUser}
             />
             <Routes>
               <Route
@@ -289,8 +289,8 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
-                      name={currentUser.name}
-                      avatar={currentUser.avatar}
+                      name={currentUser}
+                      avatar={currentUser}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
                       handleCardLikeClick={handleCardLikeClick}
@@ -313,8 +313,8 @@ function App() {
             <EditProfileModal
               isOpen={activeModal === "edit-profile"}
               updateUser={handleUpdateUser}
-              name={currentUser.name}
-              avatar={currentUser.avatar}
+              name={currentUser}
+              avatar={currentUser}
               onClose={onClose}
             />
             <RegisterModal
