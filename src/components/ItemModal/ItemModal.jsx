@@ -1,8 +1,8 @@
-import  { useContext } from "react";
+import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function ItemModal({ onDelete, card, onClose, isOpen }) {
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   // Checking if the current user is the owner of the current clothing item
   const isOwn = card.owner === currentUser._id;
