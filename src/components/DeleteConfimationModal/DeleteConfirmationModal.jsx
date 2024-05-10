@@ -11,11 +11,11 @@ function DeleteConfirmationModal({ onDelete, onCancel, onConfirm, isOpen, onClos
           Are you sure you want to delete {onDelete.name}?
         </p>
         <div className="modal__button">
-          <button type="button" className="modal__button"  onClick={onCancel}>
+          <button type="button" className="modal__button-cancel"  onClick={onCancel}>
             Cancel
           </button>
           <button onClick={onClose} type="button" className="modal__close" />
-          <button type="button" className="modal__button" onClick={onConfirm}>
+          <button type="button" className="modal__button-delete" onClick={onConfirm}>
             Delete
           </button>
           

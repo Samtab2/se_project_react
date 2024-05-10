@@ -1,6 +1,6 @@
 import "./SideBar.css";
 
-function SideBar({ name, avatar, onEditProfileModal, onLogOffProfile }) {
+function SideBar({ name, avatar, handleEditProfileModal, handleLogOff }) {
   {
     return (
       <div className="sidebar">
@@ -8,13 +8,13 @@ function SideBar({ name, avatar, onEditProfileModal, onLogOffProfile }) {
         <p className="sidebar__username">{name}</p>
         <div className="sidebar__buttons">
           <button
-            onClick={onEditProfileModal}
+            onClick={handleEditProfileModal}
             type="button"
             className="sidebar__edit-profile-btn">
             Change profile data
           </button>
           <button
-            onClick={onLogOffProfile}
+            onClick={handleLogOff}
             type="button"
             className="sidebar__log-out-btn">
             Log out
