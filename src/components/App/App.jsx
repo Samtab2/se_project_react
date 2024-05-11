@@ -245,12 +245,6 @@ function App() {
       .catch(console.error);
   }, []);
 
-  useEffect(() => {
-    const jwt = getToken();
-    if (!jwt) {
-      return;
-    }
-  });
 
   return (
     <div className="page">
@@ -264,8 +258,8 @@ function App() {
               onRegisterClick={handleSignUpModalClick}
               onLoginClick={handleSignInModalClick}
               isLoggedIn={isLoggedIn}
-              name={currentUser}
-              avatar={currentUser}
+              name={currentUser.name}
+              avatar={currentUser.avatar}
             />
             <Routes>
               <Route
@@ -276,6 +270,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    currentUser={currentUser}
                   />
                 }
               />
@@ -289,8 +284,8 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
-                      name={currentUser}
-                      avatar={currentUser}
+                      name={currentUser.name}
+                      avatar={currentUser.avatar}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
                       handleCardLikeClick={handleCardLikeClick}
@@ -313,8 +308,8 @@ function App() {
             <EditProfileModal
               isOpen={activeModal === "edit-profile"}
               updateUser={handleUpdateUser}
-              name={currentUser}
-              avatar={currentUser}
+              name={currentUser.name}
+              avatar={currentUser.avatar}
               onClose={onClose}
             />
             <RegisterModal
