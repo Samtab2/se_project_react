@@ -10,7 +10,6 @@ function Header({
   onLoginClick,
   onRegisterClick,
   avatar,
-  name,
 }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -44,12 +43,12 @@ function Header({
           </div>
           <Link to="/profile" className="header__profile-link">
             <div className="header__user-container">
-              <button type="button" className="header__username">{name}</button>
+              <button type="button" className="header__username">{currentUser.name}</button>
             </div>
           </Link>
           {avatar ? (
             <Link to="/profile">
-              <img className="header__avatar" alt="avatar" src={avatar} />
+              <img className="header__avatar" alt="avatar" src={currentUser.avatar} />
             </Link>
           ) : (
             <>

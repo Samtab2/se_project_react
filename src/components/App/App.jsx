@@ -245,7 +245,7 @@ function App() {
       .catch(console.error);
   }, []);
 
-
+  
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
@@ -284,8 +284,7 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
-                      name={currentUser.name}
-                      avatar={currentUser.avatar}
+                      currentUser={currentUser}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
                       handleCardLikeClick={handleCardLikeClick}
