@@ -21,6 +21,7 @@ function Header({
 
   const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
 
+  
   return (
     <header className="header">
       <Link to="/">

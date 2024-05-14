@@ -3,6 +3,7 @@ import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 function Profile({ handleCardClick, clothingItems, handleAddClick, handleEditProfileModalClick, handleLogOff, handleCardLikeClick }) {
 
 const { currentUser } =  useContext(CurrentUserContext);

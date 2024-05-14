@@ -119,8 +119,8 @@ function App() {
     const token = localStorage.getItem("jwt");
     auth
       .updateUser({ name, avatar }, token)
-      .then((res) => {
-        setCurrentUser(res.user);
+      .then((user) => {
+        setCurrentUser(user);
       })
       .catch((err) => {
         console.error(err.message);
