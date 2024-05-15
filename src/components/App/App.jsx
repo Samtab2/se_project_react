@@ -78,8 +78,8 @@ function App() {
     setIsConfirmationModalOpen(true);
   };
 
-  const handleCardLikeClick = (card) => {
-    setIsLiked(card);
+  const handleCardLikeClick = (item) => {
+    setIsLiked(item);
   };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
