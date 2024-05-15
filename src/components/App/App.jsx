@@ -79,7 +79,7 @@ function App() {
   };
 
   const handleCardLikeClick = (card) => {
-    setIsLiked(card.isLiked);
+    setIsLiked(card);
   };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
@@ -115,10 +115,10 @@ function App() {
       .finally(onClose);
   };
 
-  const handleUpdateUser = ({ name, avatar }) => {
+  const handleUpdateUser = ({ name, avatar, _id }) => {
     const token = localStorage.getItem("jwt");
     auth
-      .updateUser({ name, avatar }, token)
+      .updateUser({ name, avatar, _id }, token)
       .then((user) => {
         setCurrentUser(user);
       })
@@ -287,7 +287,7 @@ function App() {
                       currentUser={currentUser}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
-                      handleCardLikeClick={handleCardLikeClick}
+                      onClick={handleCardLikeClick}
                     />
                   </ProtectedRoute>
                 }></Route>

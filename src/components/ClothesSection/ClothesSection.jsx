@@ -3,7 +3,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, handleCardLike  }) => {
+const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, handleCardLikeClick  }) => {
   
   const { currentUser } = useContext(CurrentUserContext);
 
@@ -25,7 +25,7 @@ const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, handle
             key={item._id}
             item={item}
             handleCardClick={handleCardClick}
-            onCardLike={handleCardLike}
+            handleCardLikeClick={handleCardLikeClick}
           />
         ))}
       </ul>

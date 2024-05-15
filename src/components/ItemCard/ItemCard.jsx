@@ -1,13 +1,14 @@
 import "./ItemCard.css";
 import { useState } from "react";
 
-function ItemCard({ item, handleCardClick, onCardLike }) {
+
+function ItemCard({ item, handleCardClick, handleCardLikeClick }) {
   const handleClick = () => {
     handleCardClick(item);
   };
 
   const handleLike = () => {
-    onCardLike(item._id, isLiked);
+    handleCardLikeClick(item, isLiked);
     if (isLiked) {
       setIsLiked(false);
     } else {
