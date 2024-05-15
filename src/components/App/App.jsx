@@ -78,10 +78,6 @@ function App() {
     setIsConfirmationModalOpen(true);
   };
 
-  const handleCardLikeClick = (item) => {
-    setIsLiked(item);
-  };
-
   const handleSignUp = ({ name, avatar, email, password }) => {
     auth
       .signUp({ name, avatar, email, password })
@@ -151,7 +147,7 @@ function App() {
     handleCheckToken();
   }, []);
 
-  const handleCardLike = (id, token) => {
+  const handleCardLikeClick = (id, token) => {
     console.log(id);
     !isLiked
       ? api
@@ -269,7 +265,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    onCardLike={handleCardLike}
+                    handleCardLikeClick={handleCardLikeClick}
                     currentUser={currentUser}
                   />
                 }
