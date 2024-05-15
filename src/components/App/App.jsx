@@ -287,7 +287,7 @@ function App() {
                       currentUser={currentUser}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
-                      onClick={handleCardLikeClick}
+                      handleCardLikeClick={handleCardLikeClick}
                     />
                   </ProtectedRoute>
                 }></Route>

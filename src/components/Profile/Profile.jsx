@@ -11,6 +11,10 @@ const { currentUser } =  useContext(CurrentUserContext);
   const addItem = () => {
     handleAddClick();
   };
+
+  const addLike = () => {
+    handleCardLikeClick();
+  }
   return (
     <div className="profile">
       <section className="profile__sidebar">
@@ -25,7 +29,7 @@ const { currentUser } =  useContext(CurrentUserContext);
         clothingItems={clothingItems}
         handleCardClick={handleCardClick}
         handleAddClick={addItem}
-        handleCardLikeClick={handleCardLikeClick}
+        handleCardLikeClick={addLike}
       />
     </div>
   );
