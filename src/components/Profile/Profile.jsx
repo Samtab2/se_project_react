@@ -28,7 +28,7 @@ const { currentUser } =  useContext(CurrentUserContext);
         clothingItems={clothingItems}
         handleCardClick={handleCardClick}
         handleAddClick={addItem}
-        handleCardLikeClick={handleCardLike}
+        handleCardLike={handleCardLike}
       />
     </div>
   );

@@ -6,8 +6,8 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
     handleCardClick(item);
   };
 
-  const handleLike = (id) => {
-    handleCardLike(id, isLiked);
+  const handleLike = () => {
+    handleCardLike(item, isLiked);
     if (isLiked) {
       setIsLiked(false);
     } else {
