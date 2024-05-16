@@ -149,8 +149,9 @@ function App() {
     handleCheckToken();
   }, []);
 
-  const handleCardLike = (id, token) => {
+  const handleCardLike = (id) => {
     console.log(id);
+    const token = localStorage.getItem("jwt");
     !isLiked
       ? api
           .addLike(id, token)
