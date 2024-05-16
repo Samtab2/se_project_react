@@ -78,6 +78,8 @@ function App() {
     setIsConfirmationModalOpen(true);
   };
 
+
+
   const handleSignUp = ({ name, avatar, email, password }) => {
     auth
       .signUp({ name, avatar, email, password })
@@ -147,7 +149,7 @@ function App() {
     handleCheckToken();
   }, []);
 
-  const handleCardLikeClick = (id, token) => {
+  const handleCardLike = (id, token) => {
     console.log(id);
     !isLiked
       ? api
@@ -265,7 +267,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    handleCardLikeClick={handleCardLikeClick}
+                    onCardLike={handleCardLike}
                     currentUser={currentUser}
                   />
                 }
@@ -283,7 +285,7 @@ function App() {
                       currentUser={currentUser}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
-                      handleCardLikeClick={handleCardLikeClick}
+                      handleCardLikeClick={handleCardLike}
                     />
                   </ProtectedRoute>
                 }></Route>

@@ -4,13 +4,15 @@ import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile({ handleCardClick, clothingItems, handleAddClick, handleEditProfileModalClick, handleLogOff, handleCardLikeClick }) {
+function Profile({ handleCardClick, clothingItems, handleAddClick, handleEditProfileModalClick, handleLogOff, handleCardLike }) {
 
 const { currentUser } =  useContext(CurrentUserContext);
 
   const addItem = () => {
     handleAddClick();
   };
+
+  
 
   return (
     <div className="profile">
@@ -26,7 +28,7 @@ const { currentUser } =  useContext(CurrentUserContext);
         clothingItems={clothingItems}
         handleCardClick={handleCardClick}
         handleAddClick={addItem}
-        handleCardLikeClick={handleCardLikeClick}
+        handleCardLikeClick={handleCardLike}
       />
     </div>
   );
