@@ -153,25 +153,26 @@ function App() {
   const handleCardLike = (id) => {
     console.log(id);
     const token = localStorage.getItem("jwt");
-    !isLiked
-      ? api
+    if (isLiked) {
+       api
           .addLike(id, token)
-          .then((newClothingItems) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? newClothingItems : item))
-            );
-            setIsLiked(true);
-          })
-          .catch((err) => console.log(err))
-      : api
-          .removeLike(id, token)
           .then((newClothingItems) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? newClothingItems : item))
             );
             setIsLiked(false);
           })
+          .catch((err) => console.log(err))
+       api
+          .removeLike(id, token)
+          .then((newClothingItems) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? newClothingItems : item))
+            );
+            setIsLiked(true);
+          })
           .catch((err) => console.log(err));
+        }
   };
 
   const handleAddItemSubmit = (item) => {
