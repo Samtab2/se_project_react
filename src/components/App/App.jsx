@@ -53,6 +53,7 @@ function App() {
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+    handleCardLike(card, isLiked);
   };
   const handleAddClick = () => {
     setActiveModal("add-garment");
