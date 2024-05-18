@@ -160,19 +160,22 @@ function App() {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? newClothingItems : item))
             );
-            setIsLiked(false);
+            setIsLiked(true);
           })
           .catch((err) => console.log(err))
+        } else {
        api
           .removeLike(id, token)
           .then((newClothingItems) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? newClothingItems : item))
             );
-            setIsLiked(true);
+            setIsLiked(false);
           })
           .catch((err) => console.log(err));
         }
+      
+        
   };
 
   const handleAddItemSubmit = (item) => {
