@@ -30,9 +30,14 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
       <button
         onClick={() => handleLike(item._id, isLiked)}
         type="button"
-        className="card__like-button"></button>
+        className={
+          isLiked
+            ? "card__like-button card__like-button_active"
+            : "card__like-button"
+        }></button>
     </li>
   );
 }
+
 
 export default ItemCard;

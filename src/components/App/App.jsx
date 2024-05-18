@@ -47,13 +47,11 @@ function App() {
     token: "",
   });
   const navigate = useNavigate();
-  const [isLiked, setIsLiked] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
-    handleCardLike(card, isLiked);
   };
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -153,23 +151,20 @@ function App() {
     const token = localStorage.getItem("jwt");
     if (isLiked) {
       api
-        .addLike(id, token)
-        .then((newClothingItems) => {
-          setClothingItems((cards) =>
-            cards.map((item) => (item._id === id ? newClothingItems : item))
-          );
-          setIsLiked(false);
-        })
-        .catch((err) => console.log(err));
-    } else {
-      if (isLiked)
-      api
         .removeLike(id, token)
         .then((newClothingItems) => {
           setClothingItems((cards) =>
             cards.map((item) => (item._id === id ? newClothingItems : item))
           );
-          setIsLiked(true);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      api
+        .addLike(id, token)
+        .then((newClothingItems) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? newClothingItems : item))
+          );
         })
         .catch((err) => console.log(err));
     }

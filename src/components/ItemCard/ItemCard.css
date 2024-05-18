@@ -56,3 +56,12 @@
   padding: 0;
   border-radius: 2px;
 }
+
+.card__like-button:hover {
+  opacity: 0.5;
+}
+
+.cards__like-button_active {
+  background-image: url("../../assets/Like-active.svg");
+}
+
