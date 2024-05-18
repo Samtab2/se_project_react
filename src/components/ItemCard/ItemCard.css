@@ -55,13 +55,14 @@
   border: none;
   padding: 0;
   border-radius: 2px;
+  transition: background-color 0.3s ease;
 }
 
 .card__like-button:hover {
   opacity: 0.5;
 }
 
-.cards__like-button_active {
+.card__like-button_active {
   background-image: url("../../assets/Like-active.svg");
 }
 
