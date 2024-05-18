@@ -6,8 +6,8 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
     handleCardClick(item);
   };
 
-  const handleLike = () => {
-    handleCardLike(item, isLiked);
+  const handleLike = (item_id) => {
+    handleCardLike(item_id, isLiked);
     if (isLiked) {
       setIsLiked(false);
     } else {
@@ -28,7 +28,7 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
       />
 
       <button
-        onClick={handleLike}
+        onClick={() => handleLike(item._id, isLiked)}
         type="button"
         className="card__like-button"></button>
     </li>

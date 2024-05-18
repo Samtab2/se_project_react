@@ -79,8 +79,6 @@ function App() {
     setIsConfirmationModalOpen(true);
   };
 
-
-
   const handleSignUp = ({ name, avatar, email, password }) => {
     auth
       .signUp({ name, avatar, email, password })
@@ -150,32 +148,31 @@ function App() {
     handleCheckToken();
   }, []);
 
-  const handleCardLike = (id) => {
+  const handleCardLike = (id, isLiked) => {
     console.log(id);
     const token = localStorage.getItem("jwt");
     if (isLiked) {
-       api
-          .addLike(id, token)
-          .then((newClothingItems) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? newClothingItems : item))
-            );
-            setIsLiked(true);
-          })
-          .catch((err) => console.log(err))
-        } else {
-       api
-          .removeLike(id, token)
-          .then((newClothingItems) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? newClothingItems : item))
-            );
-            setIsLiked(false);
-          })
-          .catch((err) => console.log(err));
-        }
-      
-        
+      api
+        .addLike(id, token)
+        .then((newClothingItems) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? newClothingItems : item))
+          );
+          setIsLiked(false);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      if (isLiked)
+      api
+        .removeLike(id, token)
+        .then((newClothingItems) => {
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? newClothingItems : item))
+          );
+          setIsLiked(true);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   const handleAddItemSubmit = (item) => {
@@ -249,7 +246,6 @@ function App() {
       .catch(console.error);
   }, []);
 
-  
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
