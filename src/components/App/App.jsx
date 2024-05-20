@@ -59,6 +59,7 @@ function App() {
 
   const onClose = () => {
     setActiveModal("");
+    setIsConfirmationModalOpen(false);
   };
 
   const handleEditProfileModalClick = () => {
@@ -76,6 +77,8 @@ function App() {
   const openConfirmationModal = () => {
     setIsConfirmationModalOpen(true);
   };
+
+
 
   const handleSignUp = ({ name, avatar, email, password }) => {
     auth
@@ -212,32 +215,21 @@ function App() {
   useEffect(() => {
     if (!activeModal) return;
 
-    
-    // Esc close
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
         onClose();
       }
     };
-
-    // Click outside
-    const handleClickOutside = (e) => {
-      if (
-        activeModal &&
-        !document.querySelector.contains(e.target)
-      ) {
-        onClose();
-      }
-    };
-
     document.addEventListener("keydown", handleEscClose);
-    document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("keydown", handleEscClose);
-      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [activeModal]);
+
+  
+
+
+  
 
   useEffect(() => {
     getweather(coordinates, APIkey)

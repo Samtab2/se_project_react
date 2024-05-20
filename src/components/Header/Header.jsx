@@ -60,16 +60,16 @@ function Header({
       ) : (
         <>
           <button
-            onClick={onLoginClick}
-            type="text"
-            className="header__login-btn">
-            Log in{" "}
-          </button>
-          <button
             onClick={onRegisterClick}
             type="text"
             className="header__signup-btn">
             Sign up{" "}
+          </button>
+          <button
+            onClick={onLoginClick}
+            type="text"
+            className="header__login-btn">
+            Log in{" "}
           </button>
         </>
       )}
