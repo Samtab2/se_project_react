@@ -224,7 +224,7 @@ function App() {
     const handleClickOutside = (e) => {
       if (
         activeModal &&
-        !document.querySelector(".modal__content").contains(e.target)
+        !document.querySelector.contains(e.target)
       ) {
         onClose();
       }
