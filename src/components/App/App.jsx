@@ -212,14 +212,30 @@ function App() {
   useEffect(() => {
     if (!activeModal) return;
 
+    
+    // Esc close
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
         onClose();
       }
     };
+
+    // Click outside
+    const handleClickOutside = (e) => {
+      if (
+        activeModal &&
+        !document.querySelector(".modal__content").contains(e.target)
+      ) {
+        onClose();
+      }
+    };
+
     document.addEventListener("keydown", handleEscClose);
+    document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
       document.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [activeModal]);
 

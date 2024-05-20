@@ -1,21 +1,22 @@
 import "./ItemCard.css";
-import { useState } from "react";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
+
 
 function ItemCard({ item, handleCardClick, handleCardLike }) {
+
+  const { currentUser } = useContext(CurrentUserContext);
+
   const handleClick = () => {
     handleCardClick(item);
   };
 
   const handleLike = (item_id) => {
     handleCardLike(item_id, isLiked);
-    if (isLiked) {
-      setIsLiked(false);
-    } else {
-      setIsLiked(true);
-    }
   };
+  const isLiked = item.likes.some((id) => id === currentUser._id);
 
-  const [isLiked, setIsLiked] = useState(false);
 
   return (
     <li className="card">
@@ -38,6 +39,5 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
     </li>
   );
 }
-
 
 export default ItemCard;
