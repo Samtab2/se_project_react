@@ -13,7 +13,6 @@ import Profile from "../Profile/Profile";
 import Api from "../../utils/api";
 import EditProfileModal from "../ModalWIthForm/EditProfileModal";
 import Auth from "../Auth/Auth";
-import { setToken, getToken } from "../../utils/token";
 import LoginModal from "../ModalWIthForm/LoginModal";
 import RegisterModal from "../ModalWIthForm/RegisterModal";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
