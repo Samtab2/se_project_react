@@ -1,23 +1,18 @@
-import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
 
 const LoginModal = ({ onClose, isOpen, onLogin, }) => {
-  const [values, setValues] = useState({
+  const { values, handleChange, errors, isValid } = useForm({
     email: "",
     password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValid) {
     onLogin(values);
+    }
   };
 
   return (
@@ -39,6 +34,7 @@ const LoginModal = ({ onClose, isOpen, onLogin, }) => {
           placeholder="Email"
           required
         />
+        <span className="modal__error">{errors.email}</span>
       </label>
       <label htmlFor="password" className="modal__label">
         Password
@@ -51,8 +47,9 @@ const LoginModal = ({ onClose, isOpen, onLogin, }) => {
           placeholder="Password"
           required
         />
+        <span className="modal__error">{errors.password}</span>
       </label>
-      <button type="submit"  className="Login__button"></button>
+      <button type="submit"  className="Login__button" disabled={!isValid}></button>
       <button type="submit" className="Or-Sign-Up__button"></button>
     </ModalWithForm>
   );
