@@ -99,28 +99,6 @@
   margin-top: 10px;
 }
 
-.modal__submit-button-LogIn {
-  background-image: url("../../assets/SignIn-Button.svg");
-  border: none;
-  background-size: contain;
-  background-color: transparent;
-  width: 73px;
-  height: 36px;
-  cursor: pointer;
-}
-
-.modal__submit-button-OrSignUp {
-  background-image: url("../../assets/SignUp-Button.svg");
-  border: none;
-  background-color: transparent;
-  width: 73px;
-  height: 20px;
-  cursor: pointer;
-  margin-left: 100px;
-  margin-top: -20px;
-  background-repeat: no-repeat;
-}
-
 .modal__legend {
   margin: 0;
   margin-bottom: 10px;
@@ -167,4 +145,59 @@
 
 .modal__footer {
  margin-left: 30px;
+}
+
+.Login__button {
+  background-image: url(../../assets/Login-Button-Disabled.svg);
+  width: 73px;
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  margin-top: 15px;
+}
+
+.Login__button:hover {
+  background-image: url(../../assets/Login-Button.svg);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Or-Sign-Up__button {
+ background-image: url(../../assets/Or-SignUp-Button.svg);
+ background-repeat: no-repeat;
+ width: 73px;
+ height: 20px;
+ border: none;
+ background-color: transparent;
+ cursor: pointer;
+ margin-left: 100px;
+ top: auto;
+ margin-top: -22px;
+}
+
+.SignUp__button {
+  background-image: url(../../assets/SignUp-Button-Disabled.svg);
+  width: 86px;
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  margin-top: 15px;
+}
+
+.SignUp__button:hover {
+ background-image: url(../../assets/SignUp-Button.svg);
+ cursor: pointer;
+ opacity: 0.8;
+}
+
+.Or-Login__button {
+  background-image: url(../../assets/Or-Login-Button.svg);
+  background-repeat: no-repeat;
+  width: 73px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 100px;
+  margin-top: -22px;
 }

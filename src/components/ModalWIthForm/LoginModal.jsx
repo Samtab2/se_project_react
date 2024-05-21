@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalWithForm from "./ModalWithForm";
 
-const LoginModal = ({ onClose, isOpen, onLogin }) => {
+const LoginModal = ({ onClose, isOpen, onLogin, }) => {
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -52,6 +52,8 @@ const LoginModal = ({ onClose, isOpen, onLogin }) => {
           required
         />
       </label>
+      <button type="submit"  className="Login__button"></button>
+      <button type="submit" className="Or-Sign-Up__button"></button>
     </ModalWithForm>
   );
 };

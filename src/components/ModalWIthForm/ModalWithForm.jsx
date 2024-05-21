@@ -1,7 +1,7 @@
 import { useEscape } from "../../hooks/useEscape";
 import "./ModalWithForm.css";
 
-function ModalWithForm({ children, title, onClose, isOpen, onSubmit, onRegisterClick, onLoginClick }) {
+function ModalWithForm({ children, title, onClose, isOpen, onSubmit }) {
   useEscape(onClose);
 
   {
@@ -12,8 +12,6 @@ function ModalWithForm({ children, title, onClose, isOpen, onSubmit, onRegisterC
           <button onClick={onClose} type="button" className="modal__close" />
           <form className="modal__form" onSubmit={onSubmit}>
             {children}
-            <button type="submit" className="modal__submit-button-LogIn" onClick={onLoginClick}></button>
-            <button type="submit" className="modal__submit-button-OrSignUp" onClick={onRegisterClick}></button>
           </form>
         </div>
       </div>
