@@ -10,7 +10,7 @@ const LoginModal = ({ onClose, isOpen, onLogin, }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isValid) {
+    if (isValid) {
     onLogin(values);
     }
   };
