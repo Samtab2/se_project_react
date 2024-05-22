@@ -27,6 +27,8 @@ function Main({ weatherData, handleCardClick, clothingItems, handleCardLike }) {
     return weatherType && item.weather === weatherType;
   });
 
+
+
   return (
     <main>
       <WeatherCard day={true} type="sunny" weatherData={weatherData} />

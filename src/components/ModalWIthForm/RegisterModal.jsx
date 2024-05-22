@@ -3,7 +3,7 @@ import ModalWithForm from "./ModalWithForm";
 import "./RegisterModal.css";
 
 const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
-  const { values, handleChange, errors, isValid } = useForm({
+  const { values, handleChange, errors, isValid, resetForm } = useForm({
     name: "",
     email: "",
     password: "",
@@ -14,6 +14,12 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
     e.preventDefault();
     if (isValid) {
       onRegister(values);
+      resetForm({
+        name: "",
+        email: "",
+        password: "",
+        avatar: "",
+      });
     }
   };
 

@@ -8,7 +8,8 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
     weather: "",
   };
 
-  const { values, handleChange, errors, isValid } = useForm(inputValues);
+  const { values, handleChange, errors, isValid, resetForm } =
+    useForm(inputValues);
 
   const { name, imageUrl, weather } = values;
 
@@ -16,6 +17,7 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
     e.preventDefault();
     if (isValid) {
       onAddItem(values);
+      resetForm(inputValues);
     }
   };
 

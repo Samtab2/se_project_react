@@ -107,6 +107,7 @@ function App() {
           setCurrentUser(user);
           setIsLoggedIn(true);
           navigate("/profile");
+          onClose();
         });
       })
       .catch((err) => {
@@ -137,7 +138,6 @@ function App() {
           setCurrentUser(user);
           console.log(user);
           setIsLoggedIn(true);
-          return user;
         })
         .catch((err) => {
           console.error(err);

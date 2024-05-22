@@ -3,7 +3,7 @@ import ModalWithForm from "./ModalWithForm";
 import "./EditProfileModal.css";
 
 const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
-  const { values, handleChange, errors, isValid } = useForm({
+  const { values, handleChange, errors, isValid, resetForm } = useForm({
     name: "",
     avatar: "",
   });
@@ -11,7 +11,11 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
-    updateUser(values);
+      updateUser(values);
+      resetForm({
+        name: "",
+        avatar: "",
+      });
     }
   };
 
@@ -48,7 +52,10 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
         />
         <span className="modal__input_error">{errors.avatar}</span>
       </label>
-      <button type="submit" className="EditProfile__button" disabled={!isValid}></button>
+      <button
+        type="submit"
+        className="EditProfile__button"
+        disabled={!isValid}></button>
     </ModalWithForm>
   );
 };
