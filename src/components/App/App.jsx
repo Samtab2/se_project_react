@@ -48,6 +48,7 @@ function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -59,6 +60,7 @@ function App() {
   const onClose = () => {
     setActiveModal("");
     setIsConfirmationModalOpen(false);
+    setErrorMessage("");
   };
 
   const handleEditProfileModalClick = () => {
@@ -94,6 +96,7 @@ function App() {
 
   const handleSignIn = ({ email, password }) => {
     if (!email || !password) {
+      setErrorMessage("Email and password are required");
       return;
     }
     auth
@@ -108,8 +111,8 @@ function App() {
       })
       .catch((err) => {
         console.error(err.message);
+        setErrorMessage("Invalid email or password");
       })
-      .finally(onClose);
   };
 
   const handleUpdateUser = ({ name, avatar, _id }) => {
@@ -140,6 +143,8 @@ function App() {
           console.error(err);
         })
         .finally(() => setIsLoggedInLoading(false));
+    } else {
+      setIsLoggedInLoading(false);
     }
 
     return token;
@@ -324,6 +329,7 @@ function App() {
               isOpen={activeModal === "sign-in"}
               onLogin={handleSignIn}
               onRegisterClick={handleSignUpModalClick}
+              errorMessage={errorMessage}
             />
             <DeleteConfirmationModal
               onDelete={selectedCard}

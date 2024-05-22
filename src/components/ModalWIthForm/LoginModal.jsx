@@ -2,7 +2,7 @@ import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
 import "./LoginModal.css";
 
-const LoginModal = ({ onClose, isOpen, onLogin, onRegisterClick }) => {
+const LoginModal = ({ onClose, isOpen, onLogin, onRegisterClick, errorMessage }) => {
   const { values, handleChange, errors, isValid } = useForm({
     email: "",
     password: "",
@@ -50,6 +50,7 @@ const LoginModal = ({ onClose, isOpen, onLogin, onRegisterClick }) => {
         />
         <span className="modal__input_error">{errors.password}</span>
       </label>
+      <p className="modal__error">{errorMessage}</p>
       <button type="submit"  className="Login__button" disabled={!isValid}></button>
       <button type="button"  onClick={onRegisterClick} className="Or-Sign-Up__button"></button>
     </ModalWithForm>
