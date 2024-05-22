@@ -1,6 +1,7 @@
 .sidebar__avatar {
   width: 56px;
   height: 56px;
+  border-radius: 50%;
 }
 
 .sidebar__username {
@@ -35,9 +36,6 @@
   border: none;
   margin-left: -9px;
   margin-bottom: 10px;
-}
-
-.sidebar__edit-profile-btn:hover {
   cursor: pointer;
 }
 
@@ -53,8 +51,5 @@
   background-color: transparent;
   border: none;
   margin-left: -50px;
-}
-
-.sidebar__log-out-btn:hover {
   cursor: pointer;
 }

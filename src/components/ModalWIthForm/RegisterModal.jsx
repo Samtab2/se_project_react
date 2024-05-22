@@ -1,25 +1,20 @@
-import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
+import "./RegisterModal.css";
 
-const RegisterModal = ({ onClose, isOpen, onRegister }) => {
-  const [values, setValues] = useState({
+const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
+  const { values, handleChange, errors, isValid } = useForm({
     name: "",
     email: "",
     password: "",
     avatar: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister(values);
+    if (isValid) {
+      onRegister(values);
+    }
   };
 
   return (
@@ -41,6 +36,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister }) => {
           placeholder="Name"
           required
         />
+        <span className="modal__input_error">{errors.name}</span>
       </label>
       <label htmlFor="email" className="modal__label">
         Email
@@ -53,6 +49,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister }) => {
           placeholder="Email"
           required
         />
+        <span className="modal__input_error">{errors.email}</span>
       </label>
       <label htmlFor="password" className="modal__label">
         Password
@@ -65,6 +62,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister }) => {
           placeholder="Password"
           required
         />
+        <span className="modal__input_error">{errors.password}</span>
       </label>
       <label htmlFor="avatar" className="modal__label">
         Avatar
@@ -77,9 +75,16 @@ const RegisterModal = ({ onClose, isOpen, onRegister }) => {
           placeholder="Avatar Url"
           required
         />
+        <span className="modal__input_error">{errors.avatar}</span>
       </label>
-      <button type="submit" className="SignUp__button"></button>
-      <button type="submit" className="Or-Login__button"></button>
+      <button
+        type="submit"
+        className="SignUp__button"
+        disabled={!isValid}></button>
+      <button
+        type="button"
+        onClick={onLoginClick}
+        className="Or-Login__button"></button>
     </ModalWithForm>
   );
 };

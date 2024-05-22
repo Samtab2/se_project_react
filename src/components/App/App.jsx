@@ -317,11 +317,13 @@ function App() {
               onClose={onClose}
               isOpen={activeModal === "sign-up"}
               onRegister={handleSignUp}
+              onLoginClick={handleSignInModalClick}
             />
             <LoginModal
               onClose={onClose}
               isOpen={activeModal === "sign-in"}
               onLogin={handleSignIn}
+              onRegisterClick={handleSignUpModalClick}
             />
             <DeleteConfirmationModal
               onDelete={selectedCard}

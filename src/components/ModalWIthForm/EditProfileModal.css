@@ -1,0 +1,20 @@
+.EditProfile__button {
+  background-image: url(../../assets/Save-Changes-button.svg);
+  background-repeat: no-repeat;
+  width: 128px;
+  height: 36px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: -5px;
+}
+
+.EditProfile__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.EditProfile__button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0.5;
+}

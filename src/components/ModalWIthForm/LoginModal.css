@@ -1,0 +1,33 @@
+
+.Login__button {
+    background-image: url(../../assets/Login-Button-Disabled.svg);
+    width: 73px;
+    height: 36px;
+    background-color: transparent;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+  }
+
+
+  .Login__button:hover {
+    background-image: url(../../assets/Login-Button.svg);
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  
+
+
+  .Or-Sign-Up__button {
+    background-image: url(../../assets/Or-SignUp-Button.svg);
+    background-repeat: no-repeat;
+    width: 73px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 100px;
+    top: auto;
+    margin-top: -22px;
+   }

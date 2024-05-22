@@ -79,9 +79,6 @@
   border: none;
   background-color: transparent;
   margin-left: 20px;
-}
-
-.header__signup-btn:hover {
   cursor: pointer;
 }
 
@@ -96,14 +93,11 @@
   padding: 0;
   background-color: transparent;
   margin-left: 20px;
-}
-
-.header__login-btn:hover {
   cursor: pointer;
 }
 
 .header__avatar {
   width: 40px;
   height: 40px;
-  border-radius: 2px;
+  border-radius: 50%;
 }
