@@ -1,6 +1,6 @@
 
 .Login__button {
-    background-image: url(../../assets/Login-Button-Disabled.svg);
+    background-image: url(../../assets/Login-Button.svg);
     width: 73px;
     height: 36px;
     background-color: transparent;
@@ -12,9 +12,15 @@
 
 
   .Login__button:hover {
-    background-image: url(../../assets/Login-Button.svg);
-    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.6);
     opacity: 0.8;
+  }
+
+
+  .Login__button:disabled {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0.5;
+    cursor: not-allowed;
   }
   
 
