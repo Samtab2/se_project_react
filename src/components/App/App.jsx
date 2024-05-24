@@ -48,6 +48,7 @@ function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -79,54 +80,70 @@ function App() {
     setIsConfirmationModalOpen(true);
   };
 
-  const handleSignUp = ({ name, avatar, email, password }) => {
-    auth
-      .signUp({ name, avatar, email, password })
-      .then((res) => {
-        setCurrentUser({ name: res.name, avatar: res.avatar, _id: res._id });
-        navigate("/profile");
+  const handleSubmit = (request) => {
+    setIsLoading(true);
+    request()
+      .then(() => {
+        onClose(); // Close modal on success
       })
       .catch((err) => {
-        console.error(err.message);
+        console.error(err);
+        setErrorMessage("Something went wrong. Please try again.");
       })
-      .finally(onClose);
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleSignUp = ({ name, avatar, email, password }) => {
+    const makeRequest = () => {
+      return auth.signUp({ name, avatar, email, password }).then((res) => {
+        setCurrentUser({
+          name: res.name,
+          avatar: res.avatar,
+          _id: res._id,
+        });
+        navigate("/profile");
+      });
+    };
+
+    handleSubmit(makeRequest);
   };
 
   const handleSignIn = ({ email, password }) => {
-    if (!email || !password) {
-      setErrorMessage("Email and password are required");
-      return;
-    }
-    auth
-      .signIn({ email, password })
-      .then((data) => {
-        localStorage.setItem("jwt", data.token);
-        auth.getUser(data.token).then((user) => {
+    const makeRequest = () => {
+      if (!email || !password) {
+        setErrorMessage("Email and password are required");
+        return Promise.reject(new Error("Email and password are required"));
+      }
+
+      return auth
+        .signIn({ email, password })
+        .then((data) => {
+          localStorage.setItem("jwt", data.token);
+          return auth.getUser(data.token);
+        })
+        .then((user) => {
           setCurrentUser(user);
           setIsLoggedIn(true);
           navigate("/profile");
           onClose();
         });
-      })
-      .catch((err) => {
-        console.error(err.message);
-        setErrorMessage("Invalid email or password");
-      });
+    };
+
+    handleSubmit(makeRequest);
   };
 
   const handleUpdateUser = ({ name, avatar, _id }) => {
-    const token = localStorage.getItem("jwt");
-    auth
-      .updateUser({ name, avatar, _id }, token)
-      .then((user) => {
+    const makeRequest = () => {
+      const token = localStorage.getItem("jwt");
+      return auth.updateUser({ name, avatar, _id }, token).then((user) => {
         setCurrentUser(user);
-      })
-      .catch((err) => {
-        console.error(err.message);
-      })
-      .finally(onClose);
-  };
+      });
+    };
 
+    handleSubmit(makeRequest);
+  };
   const handleCheckToken = () => {
     const token = localStorage.getItem("jwt");
     if (token) {
@@ -152,43 +169,34 @@ function App() {
   }, []);
 
   const handleCardLike = (id, isLiked) => {
-    console.log(id);
-    const token = localStorage.getItem("jwt");
-    if (isLiked) {
-      api
-        .removeLike(id, token)
-        .then((newClothingItems) => {
-          setClothingItems((cards) =>
-            cards.map((item) => (item._id === id ? newClothingItems : item))
-          );
-        })
-        .catch((err) => console.log(err));
-    } else {
-      api
-        .addLike(id, token)
-        .then((newClothingItems) => {
-          setClothingItems((cards) =>
-            cards.map((item) => (item._id === id ? newClothingItems : item))
-          );
-        })
-        .catch((err) => console.log(err));
-    }
+    const makeRequest = () => {
+      const token = localStorage.getItem("jwt");
+      const action = isLiked ? api.removeLike : api.addLike;
+
+      return action(id, token).then((newClothingItems) => {
+        setClothingItems((cards) =>
+          cards.map((item) => (item._id === id ? newClothingItems : item))
+        );
+      });
+    };
+
+    handleSubmit(makeRequest);
   };
 
   const handleAddItemSubmit = (item) => {
-    const token = localStorage.getItem("jwt");
-    api
-      .addItem(item, token)
-      .then((res) => {
+    const makeRequest = () => {
+      const token = localStorage.getItem("jwt");
+      setIsLoading(true);
+      return api.addItem(item, token).then((res) => {
         setClothingItems((prevClothingItems) => [
           res.data,
           ...prevClothingItems,
         ]);
-        onClose();
-      })
-      .catch(console.error);
-  };
+      });
+    };
 
+    handleSubmit(makeRequest);
+  };
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -201,19 +209,19 @@ function App() {
   };
 
   const handleItemDelete = () => {
-    const token = localStorage.getItem("jwt");
-    api
-      .deleteItem(selectedCard._id, token)
-      .then(() => {
+    const makeRequest = () => {
+      const token = localStorage.getItem("jwt");
+      return api.deleteItem(selectedCard._id, token).then(() => {
         const newClothingItems = clothingItems.filter(
           (item) => item._id !== selectedCard._id
         );
         setClothingItems(newClothingItems);
         onClose();
-      })
-      .catch(console.error);
-  };
+      });
+    };
 
+    handleSubmit(makeRequest);
+  };
   useEffect(() => {
     if (!activeModal) return;
 
@@ -258,7 +266,7 @@ function App() {
               onRegisterClick={handleSignUpModalClick}
               onLoginClick={handleSignInModalClick}
               isLoggedIn={isLoggedIn}
-              name={currentUser.name}
+              currentUser={currentUser}
               avatar={currentUser.avatar}
             />
             <Routes>
@@ -297,6 +305,7 @@ function App() {
               isOpen={activeModal === "add-garment"}
               onAddItem={handleAddItemSubmit}
               clothingItems={clothingItems}
+              buttonText={isLoading ? "Saving..." : "Save"}
             />
             <ItemModal
               card={selectedCard}

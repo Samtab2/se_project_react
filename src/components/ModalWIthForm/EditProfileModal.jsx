@@ -3,10 +3,7 @@ import ModalWithForm from "./ModalWithForm";
 import "./EditProfileModal.css";
 
 const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
-  const { values, handleChange, errors, isValid, resetForm } = useForm({
-    name: "",
-    avatar: "",
-  });
+  const { values, handleChange, errors, isValid, resetForm } = useForm();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,12 +23,12 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="name" id="name" className="modal__label">
         Name
         <input
           type="text"
           name="name"
-          value={values.name}
+          value={values}
           onChange={handleChange}
           className="modal__input"
           placeholder="Name"
@@ -39,12 +36,12 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
         />
         <span className="modal__input_error">{errors.name}</span>
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="avatar" id="avatar" className="modal__label">
         Avatar
         <input
           type="url"
           name="avatar"
-          value={values.avatar}
+          value={values}
           onChange={handleChange}
           className="modal__input"
           placeholder="Avatar Url"
