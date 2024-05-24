@@ -12,7 +12,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/api";
 import EditProfileModal from "../ModalWIthForm/EditProfileModal";
-import Auth from "../Auth/Auth";
+import Auth from "../../utils/Auth";
 import LoginModal from "../ModalWIthForm/LoginModal";
 import RegisterModal from "../ModalWIthForm/RegisterModal";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
