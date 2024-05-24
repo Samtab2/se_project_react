@@ -3,8 +3,12 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const ClothesSection = ({ clothingItems, handleCardClick, handleAddClick, handleCardLike  }) => {
-  
+const ClothesSection = ({
+  clothingItems,
+  handleCardClick,
+  handleAddClick,
+  handleCardLike,
+}) => {
   const { currentUser } = useContext(CurrentUserContext);
 
   const profileCards = clothingItems.filter(

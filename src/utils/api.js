@@ -3,7 +3,6 @@ class Api {
     // constructor body
     this.baseUrl = baseUrl;
     this._headers = headers;
-    
   }
 
   _checkResponse(res) {
@@ -18,7 +17,8 @@ class Api {
     return fetch(`${this.baseUrl}/items`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",}
+        "Content-Type": "application/json",
+      },
     }).then(this._checkResponse);
   }
 
@@ -43,7 +43,7 @@ class Api {
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${token}`,
-      }
+      },
     }).then(this._checkResponse);
   }
 

@@ -2,10 +2,7 @@ import "./ItemCard.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-
-
 function ItemCard({ item, handleCardClick, handleCardLike }) {
-
   const { currentUser } = useContext(CurrentUserContext);
 
   const handleClick = () => {
@@ -16,7 +13,6 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
     handleCardLike(item_id, isLiked);
   };
   const isLiked = item.likes.some((id) => id === currentUser._id);
-
 
   return (
     <li className="card">

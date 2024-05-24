@@ -4,21 +4,24 @@ import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile({ handleCardClick, clothingItems, handleAddClick, handleEditProfileModalClick, handleLogOff, handleCardLike }) {
-
-const { currentUser } =  useContext(CurrentUserContext);
+function Profile({
+  handleCardClick,
+  clothingItems,
+  handleAddClick,
+  handleEditProfileModalClick,
+  handleLogOff,
+  handleCardLike,
+}) {
+  const { currentUser } = useContext(CurrentUserContext);
 
   const addItem = () => {
     handleAddClick();
   };
-  
-
-  
 
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar 
+        <SideBar
           name={currentUser.name}
           avatar={currentUser.avatar}
           handleEditProfileModalClick={handleEditProfileModalClick}

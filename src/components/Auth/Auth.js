@@ -12,7 +12,7 @@ class Auth {
     return Promise.reject(`Error ${res.status}`);
   }
 
-  signUp ({ name, email, password, avatar }) {
+  signUp({ name, email, password, avatar }) {
     return fetch(`${this.baseUrl}/signup`, {
       method: "POST",
       headers: this._headers,
@@ -20,49 +20,46 @@ class Auth {
         name,
         email,
         password,
-        avatar
+        avatar,
       }),
     }).then(this._checkResponse);
   }
 
-  signIn ({ email, password }) {
+  signIn({ email, password }) {
     return fetch(`${this.baseUrl}/signin`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         email,
-        password
+        password,
       }),
     }).then(this._checkResponse);
   }
 
-  updateUser ({ name, avatar }, token) {
+  updateUser({ name, avatar }, token) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         name,
-        avatar
+        avatar,
       }),
     }).then(this._checkResponse);
   }
 
-  getUser (token) {
+  getUser(token) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
     }).then(this._checkResponse);
   }
-
-
-
 }
 
 export default Auth;

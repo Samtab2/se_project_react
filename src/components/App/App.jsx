@@ -79,8 +79,6 @@ function App() {
     setIsConfirmationModalOpen(true);
   };
 
-
-
   const handleSignUp = ({ name, avatar, email, password }) => {
     auth
       .signUp({ name, avatar, email, password })
@@ -113,7 +111,7 @@ function App() {
       .catch((err) => {
         console.error(err.message);
         setErrorMessage("Invalid email or password");
-      })
+      });
   };
 
   const handleUpdateUser = ({ name, avatar, _id }) => {
@@ -229,11 +227,6 @@ function App() {
       document.removeEventListener("keydown", handleEscClose);
     };
   }, [activeModal]);
-
-  
-
-
-  
 
   useEffect(() => {
     getweather(coordinates, APIkey)
