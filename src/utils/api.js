@@ -5,6 +5,10 @@ class Api {
     this._headers = headers;
   }
 
+  _request(url, options) {
+    return fetch(url, options).then(this._checkResponse);
+  }
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
@@ -19,7 +23,7 @@ class Api {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(this._checkResponse);
+    });
   }
 
   addItem({ name, imageUrl, weather }, token) {
@@ -34,8 +38,8 @@ class Api {
         imageUrl,
         weather,
       }),
-    }).then(this._checkResponse);
-  }
+    });
+    }
 
   deleteItem(id, token) {
     return fetch(`${this.baseUrl}/items/${id}`, {
@@ -44,7 +48,7 @@ class Api {
         "Content-Type": "application/json",
         authorization: `Bearer ${token}`,
       },
-    }).then(this._checkResponse);
+    });
   }
 
   addLike(id, token) {
@@ -54,7 +58,7 @@ class Api {
         "Content-Type": "application/json",
         authorization: `Bearer ${token}`,
       },
-    }).then(this._checkResponse);
+    });
   }
 
   removeLike(id, token) {
@@ -64,7 +68,7 @@ class Api {
         "Content-Type": "application/json",
         authorization: `Bearer ${token}`,
       },
-    }).then(this._checkResponse);
+    });
   }
 }
 
