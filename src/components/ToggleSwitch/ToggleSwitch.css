@@ -4,7 +4,7 @@
 }
 
 .toggle__switch-input {
-  margin-left: 860px;
+  margin-left: 680px;
   border-radius: 25px;
   border: 2px solid rgba(126, 126, 126, 1);
   width: 56px;
@@ -13,7 +13,7 @@
   font-family: "CabinetGrotesk";
   font-style: normal;
   font-weight: 700;
-}
+  }
 
 .switch__slider {
   border-radius: 20px;
@@ -23,7 +23,7 @@
   text-align: center;
   cursor: pointer;
   position: absolute;
-  margin-left: 860px;
+  margin-left: 680px;
   transition: 0.4s ease-in-out;
 }
 
@@ -40,7 +40,7 @@
   top: -9px;
   left: 35px;
   line-height: 17.36px;
-  margin-left: 860px;
+  margin-left: 680px;
   cursor: pointer;
   color: white;
   font-family: "CabinetGrotesk";
@@ -53,7 +53,7 @@
   top: -10px;
   left: 10px;
   line-height: 17.36px;
-  margin-left: 860px;
+  margin-left: 680px;
   color: white;
   cursor: pointer;
   font-family: "CabinetGrotesk";
