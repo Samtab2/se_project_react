@@ -3,23 +3,24 @@ import ModalWithForm from "./ModalWithForm";
 import "./RegisterModal.css";
 
 const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
-  const { values, handleChange, errors, isValid, resetForm } = useForm({
+  const inputValues = {
     name: "",
     email: "",
     password: "",
     avatar: "",
-  });
+  };
+
+  const { values, handleChange, errors, isValid, resetForm } =
+    useForm(inputValues);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
       onRegister(values);
-      resetForm({
-        name: "",
-        email: "",
-        password: "",
-        avatar: "",
-      });
+
+      if (isOpen) {
+        resetForm(inputValues);
+      }
     }
   };
 

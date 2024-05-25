@@ -9,19 +9,22 @@ const LoginModal = ({
   onRegisterClick,
   errorMessage,
 }) => {
-  const { values, handleChange, errors, isValid, resetForm } = useForm({
+  const inputValues = {
     email: "",
     password: "",
-  });
+  };
+
+  const { values, handleChange, errors, isValid, resetForm } =
+    useForm(inputValues);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
       onLogin(values);
-      resetForm({
-        email: "",
-        password: "",
-      });
+    }
+
+    if (isOpen) {
+      resetForm(inputValues);
     }
   };
 

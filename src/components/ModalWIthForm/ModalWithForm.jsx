@@ -1,7 +1,13 @@
 import { useEscape } from "../../hooks/useEscape";
 import "./ModalWithForm.css";
 
-function ModalWithForm({ children, title, onClose, isOpen, onSubmit }) {
+function ModalWithForm({
+  children,
+  title,
+  onClose,
+  isOpen,
+  onSubmit,
+}) {
   useEscape(onClose);
 
   {

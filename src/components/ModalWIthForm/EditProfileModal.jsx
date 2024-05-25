@@ -3,16 +3,21 @@ import ModalWithForm from "./ModalWithForm";
 import "./EditProfileModal.css";
 
 const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
-  const { values, handleChange, errors, isValid, resetForm } = useForm();
+  const inputValues = {
+    name: "",
+    avatar: "",
+  };
 
+  const { values, handleChange, errors, isValid, resetForm } =
+    useForm(inputValues);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
       updateUser(values);
-      resetForm({
-        name: "",
-        avatar: "",
-      });
+
+      if (isOpen) {
+        resetForm(inputValues);
+      }
     }
   };
 

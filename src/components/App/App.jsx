@@ -169,6 +169,7 @@ function App() {
   }, []);
 
   const handleCardLike = (id, isLiked) => {
+    if (!isLoggedIn) return;
     const makeRequest = () => {
       const token = localStorage.getItem("jwt");
       const action = isLiked ? api.removeLike : api.addLike;
