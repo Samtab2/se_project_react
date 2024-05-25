@@ -22,7 +22,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addItem({ name, imageUrl, weather }, token) {
+  addItem ({ name, imageUrl, weather }, token)  {
     return fetch(`${this.baseUrl}/items`, {
       method: "POST",
       headers: {
@@ -35,9 +35,9 @@ class Api {
         weather,
       }),
     }).then(this._checkResponse);
-  }
+  };
 
-  deleteItem(id, token) {
+  deleteItem (id, token) {
     return fetch(`${this.baseUrl}/items/${id}`, {
       method: "DELETE",
       headers: {
@@ -47,7 +47,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addLike(id, token) {
+  addLike = (id, token) => {
     return fetch(`${this.baseUrl}/items/${id}/likes`, {
       method: "PUT",
       headers: {
@@ -55,9 +55,9 @@ class Api {
         authorization: `Bearer ${token}`,
       },
     }).then(this._checkResponse);
-  }
+  };
 
-  removeLike(id, token) {
+  removeLike = (id, token) => {
     return fetch(`${this.baseUrl}/items/${id}/likes`, {
       method: "DELETE",
       headers: {
@@ -65,7 +65,7 @@ class Api {
         authorization: `Bearer ${token}`,
       },
     }).then(this._checkResponse);
-  }
+  };
 }
 
 export default Api;
