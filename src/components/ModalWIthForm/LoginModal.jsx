@@ -8,6 +8,7 @@ const LoginModal = ({
   onLogin,
   onRegisterClick,
   errorMessage,
+  onLoginClick,
 }) => {
   const inputValues = {
     email: "",
@@ -66,6 +67,7 @@ const LoginModal = ({
       <button
         type="submit"
         className="Login__button"
+        onClick={onLoginClick}
         disabled={!isValid}></button>
       <button
         type="button"

@@ -333,6 +333,7 @@ function App() {
               onLogin={handleSignIn}
               onRegisterClick={handleSignUpModalClick}
               errorMessage={errorMessage}
+              onLoginClick={handleSignInModalClick}
             />
             <DeleteConfirmationModal
               onDelete={selectedCard}

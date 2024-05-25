@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-
 export const Modal = ({ name, onClose, children }) => {
   // Escape key listener
   useEffect(() => {
@@ -16,7 +15,7 @@ export const Modal = ({ name, onClose, children }) => {
 
   // Overlay click listener
   const handleOverlay = (e) => {
-    if (e.target === e.currentTarget) {
+    if (e.target === e.currentTarget || e.target.closest(".modal__close")) {
       onClose();
     }
   };
