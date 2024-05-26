@@ -35,7 +35,7 @@ class Api {
         weather,
       }),
     }).then(this._checkResponse);
-  };
+  }
 
   deleteItem (id, token) {
     return fetch(`${this.baseUrl}/items/${id}`, {

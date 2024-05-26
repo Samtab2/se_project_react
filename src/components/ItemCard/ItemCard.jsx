@@ -24,7 +24,7 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
         alt={item.name}
       />
       <button
-        onClick={handleLike}
+        onClick={() => handleLike(item._id, isLiked)}
         type="button"
         className={
           isLiked

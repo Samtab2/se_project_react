@@ -181,7 +181,7 @@ function App() {
       });
     };
 
-    handleSubmit(makeRequest);
+    handleSubmit(() => makeRequest());
   };
 
   const handleAddItemSubmit = (item) => {
