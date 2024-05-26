@@ -39,7 +39,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
           name="name"
           value={values.name}
           onChange={handleChange}
-          className="modal__input"
+          className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
           placeholder="Name"
           required
         />
@@ -52,7 +52,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
           name="email"
           value={values.email}
           onChange={handleChange}
-          className="modal__input"
+          className={`modal__input ${errors.email ? "modal__input_error" : ""}`}
           placeholder="Email"
           required
         />
@@ -65,7 +65,9 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
           name="password"
           value={values.password}
           onChange={handleChange}
-          className="modal__input"
+          className={`modal__input ${
+            errors.password ? "modal__input_error" : ""
+          }`}
           placeholder="Password"
           required
         />
@@ -78,7 +80,9 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
           name="avatar"
           value={values.avatar}
           onChange={handleChange}
-          className="modal__input"
+          className={`modal__input ${
+            errors.avatar ? "modal__input_error" : ""
+          }`}
           placeholder="Avatar Url"
           required
         />

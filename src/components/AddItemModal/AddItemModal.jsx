@@ -18,7 +18,6 @@ const AddItemModal = ({
   const { values, handleChange, errors, isValid, resetForm } =
     useForm(inputValues);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
@@ -42,25 +41,29 @@ const AddItemModal = ({
         Name{" "}
         <input
           type="text"
-          className="modal__input"
+          className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
           name="name"
           placeholder="Name"
           value={values.name}
           onChange={handleChange}
           minLength="1"
           maxLength="30"
+          required
         />
         <span className="modal__input_error">{errors.name}</span>
       </label>
       <label htmlFor="imageUrl" id="ImageUrl" className="modal__label">
         Image{" "}
         <input
-          type="text"
-          className="modal__input"
+          type="url"
+          className={`modal__input ${
+            errors.imageUrl ? "modal__input_error" : ""
+          }`}
           name="imageUrl"
           placeholder="Image Url"
           value={values.imageUrl}
           onChange={handleChange}
+          required
         />
         <span className="modal__input_error">{errors.imageUrl}</span>
       </label>
@@ -94,6 +97,7 @@ const AddItemModal = ({
             placeholder="warm"
             checked={values.weather === "warm"}
             onChange={handleChange}
+            required
           />{" "}
           Warm
         </label>
@@ -109,10 +113,10 @@ const AddItemModal = ({
             placeholder="cold"
             checked={values.weather === "cold"}
             onChange={handleChange}
+            required
           />{" "}
           Cold
         </label>
-        <span className="modal__input_error">{errors.weather}</span>
         <button
           type="submit"
           className="modal__button-add"

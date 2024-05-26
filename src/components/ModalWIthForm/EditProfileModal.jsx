@@ -35,7 +35,7 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
           name="name"
           value={values.name}
           onChange={handleChange}
-          className="modal__input"
+          className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
           placeholder="Name"
           required
         />
@@ -48,7 +48,9 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
           name="avatar"
           value={values.avatar}
           onChange={handleChange}
-          className="modal__input"
+          className={`modal__input ${
+            errors.avatar ? "modal__input_error" : ""
+          }`}
           placeholder="Avatar Url"
           required
         />

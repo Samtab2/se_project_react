@@ -132,4 +132,13 @@
 
 .modal__input_error {
   border-bottom: solid 1px rgba(255, 0, 0, 1);
-}
+  font-size: 15px;
+  font-family: CabinetGrotesk;
+  font-weight: 700;
+  }
+
+
+  .modal__input:focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+  }
