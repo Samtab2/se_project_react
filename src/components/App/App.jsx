@@ -84,7 +84,7 @@ function App() {
     setIsLoading(true);
     request()
       .then(() => {
-        onClose(); // Close modal on success
+        onClose(); 
       })
       .catch((err) => {
         console.error(err);
