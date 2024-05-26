@@ -317,7 +317,7 @@ function App() {
             <EditProfileModal
               isOpen={activeModal === "edit-profile"}
               updateUser={handleUpdateUser}
-              name={currentUser.name}
+              currentUser={currentUser}
               avatar={currentUser.avatar}
               onClose={onClose}
             />
