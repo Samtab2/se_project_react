@@ -2,7 +2,13 @@ import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
 import "./EditProfileModal.css";
 
-const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
+const EditProfileModal = ({
+  onClose,
+  isOpen,
+  updateUser,
+  buttonText,
+  isLoading,
+}) => {
   const inputValues = {
     name: "",
     avatar: "",
@@ -24,10 +30,11 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
   return (
     <ModalWithForm
       title="Change Profile Data"
-      buttonText="Save Changes"
+      buttonText={buttonText}
       onClose={onClose}
       isOpen={isOpen}
-      onSubmit={handleSubmit}>
+      onSubmit={handleSubmit}
+      isLoading={isLoading}>
       <label htmlFor="name" id="name" className="modal__label">
         Name
         <input
@@ -59,7 +66,7 @@ const EditProfileModal = ({ onClose, isOpen, updateUser }) => {
       <button
         type="submit"
         className="EditProfile__button"
-        disabled={!isValid}></button>
+        disabled={!isValid}>{buttonText}</button>
     </ModalWithForm>
   );
 };

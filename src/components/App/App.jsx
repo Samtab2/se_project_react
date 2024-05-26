@@ -306,7 +306,7 @@ function App() {
               isOpen={activeModal === "add-garment"}
               onAddItem={handleAddItemSubmit}
               clothingItems={clothingItems}
-              buttonText={isLoading ? "Saving..." : "Save"}
+              buttonText={isLoading ? "Saving..." : "Save Garment"}
             />
             <ItemModal
               card={selectedCard}
@@ -320,6 +320,7 @@ function App() {
               currentUser={currentUser}
               avatar={currentUser.avatar}
               onClose={onClose}
+              buttonText={isLoading ? "Saving..." : "Save Changes"}
             />
             <RegisterModal
               onClose={onClose}

@@ -120,7 +120,7 @@ const AddItemModal = ({
         <button
           type="submit"
           className="modal__button-add"
-          disabled={!isValid}></button>
+          disabled={!isValid}>{buttonText}</button>
       </fieldset>
     </ModalWithForm>
   );
