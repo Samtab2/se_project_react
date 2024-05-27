@@ -4,7 +4,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { useContext, useMemo } from "react";
 
-function Main({ weatherData, handleCardClick, clothingItems, handleCardLike }) {
+function Main({ weatherData, handleCardClick, clothingItems, handleCardLike, defaultClothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherData?.temp?.[currentTemperatureUnit];
   const weatherType = useMemo(() => {
@@ -26,6 +26,8 @@ function Main({ weatherData, handleCardClick, clothingItems, handleCardLike }) {
   const filteredCards = clothingItems.filter((item) => {
     return weatherType && item.weather === weatherType;
   });
+
+  
 
   return (
     <main>

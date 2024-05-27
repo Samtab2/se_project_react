@@ -26,11 +26,13 @@
 }
 
 .card__image {
-  width: 100%;
+  max-width: 328px;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   max-height: 328px;
-  object-fit: cover;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .cards__text {

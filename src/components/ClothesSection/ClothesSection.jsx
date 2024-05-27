@@ -8,10 +8,11 @@ const ClothesSection = ({
   handleCardClick,
   handleAddClick,
   handleCardLike,
+  defaultClothingItems,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
-  const profileCards = clothingItems.filter(
+  const profileCards = defaultClothingItems && clothingItems.filter(
     (item) => item.owner === currentUser._id
   );
   return (
