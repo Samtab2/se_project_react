@@ -35,8 +35,9 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
       <label htmlFor="name" className="modal__label">
         Name
         <input
-          title="text"
+          type="text"
           name="name"
+          id="name"
           value={values.name}
           onChange={handleChange}
           className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
@@ -50,6 +51,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         <input
           type="email"
           name="email"
+          id="email"
           value={values.email}
           onChange={handleChange}
           className={`modal__input ${errors.email ? "modal__input_error" : ""}`}
@@ -63,6 +65,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         <input
           type="password"
           name="password"
+          id="password"
           value={values.password}
           onChange={handleChange}
           className={`modal__input ${
@@ -78,6 +81,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         <input
           type="url"
           name="avatar"
+          id="avatar"
           value={values.avatar}
           onChange={handleChange}
           className={`modal__input ${

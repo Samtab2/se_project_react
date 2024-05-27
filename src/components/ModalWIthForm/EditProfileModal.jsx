@@ -1,7 +1,8 @@
+import { useContext } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
 import "./EditProfileModal.css";
-
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 const EditProfileModal = ({
   onClose,
   isOpen,
@@ -27,6 +28,8 @@ const EditProfileModal = ({
     }
   };
 
+
+  const { currentUser } = useContext(CurrentUserContext);
   return (
     <ModalWithForm
       title="Change Profile Data"
@@ -35,12 +38,13 @@ const EditProfileModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       isLoading={isLoading}>
-      <label htmlFor="name" id="name" className="modal__label">
+      <label htmlFor="name" className="modal__label">
         Name
         <input
           type="text"
           name="name"
-          value={values.name}
+          id="name"
+          value={currentUser.name}
           onChange={handleChange}
           className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
           placeholder="Name"
@@ -48,12 +52,13 @@ const EditProfileModal = ({
         />
         <span className="modal__input_error">{errors.name}</span>
       </label>
-      <label htmlFor="avatar" id="avatar" className="modal__label">
+      <label htmlFor="avatar" className="modal__label">
         Avatar
         <input
           type="url"
           name="avatar"
-          value={values.avatar}
+          id="avatar"
+          value={currentUser.avatar}
           onChange={handleChange}
           className={`modal__input ${
             errors.avatar ? "modal__input_error" : ""
@@ -63,10 +68,9 @@ const EditProfileModal = ({
         />
         <span className="modal__input_error">{errors.avatar}</span>
       </label>
-      <button
-        type="submit"
-        className="EditProfile__button"
-        disabled={!isValid}>{buttonText}</button>
+      <button type="submit" className="EditProfile__button" disabled={!isValid}>
+        {buttonText}
+      </button>
     </ModalWithForm>
   );
 };

@@ -42,6 +42,7 @@ const LoginModal = ({
         <input
           type="email"
           name="email"
+          id="email"
           value={values.email}
           onChange={handleChange}
           className={`modal__input ${errors.email ? "modal__input_error" : ""}`}
@@ -55,6 +56,7 @@ const LoginModal = ({
         <input
           type="password"
           name="password"
+          id="password"
           value={values.password}
           onChange={handleChange}
           className={`modal__input ${
