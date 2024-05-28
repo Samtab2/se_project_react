@@ -40,7 +40,7 @@ const AddItemModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       isLoading={isLoading}>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="name3" className="modal__label">
         Name{" "}
         <input
           type="text"

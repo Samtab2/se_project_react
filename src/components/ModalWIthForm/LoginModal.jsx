@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
@@ -25,11 +26,11 @@ const LoginModal = ({
     if (isValid) {
       onLogin(values);
     }
-
-    if (isOpen) {
-      resetForm(inputValues);
-    }
   };
+
+  React.useEffect(() => {
+    resetForm(inputValues);
+  }, [isOpen]);
 
   return (
     <ModalWithForm

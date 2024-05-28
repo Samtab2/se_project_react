@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
@@ -19,12 +20,14 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
     e.preventDefault();
     if (isValid) {
       onRegister(values);
-
-      if (isOpen) {
-        resetForm(inputValues);
-      }
     }
   };
+
+  React.useEffect(() => {
+    resetForm(inputValues);
+  }, [isOpen]);
+
+
 
   return (
     <ModalWithForm
@@ -34,7 +37,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="name2" className="modal__label">
         Name
         <input
           type="text"
