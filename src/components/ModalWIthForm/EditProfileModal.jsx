@@ -11,10 +11,6 @@ const EditProfileModal = ({
   isLoading,
 }) => {
   const currentUser = useContext(CurrentUserContext);
-  const inputValues = {
-    name: "",
-    avatar: "",
-  };
 
   useEffect(() => {
     resetForm({
@@ -24,7 +20,6 @@ const EditProfileModal = ({
   }, [currentUser]);
 
   const { values, handleChange, errors, isValid, resetForm } = useForm(
-    inputValues,
     currentUser
   );
 
@@ -36,8 +31,8 @@ const EditProfileModal = ({
   };
 
   useEffect(() => {
-    resetForm(inputValues);
-  }, [isOpen]);
+    resetForm(values);
+  }, [currentUser]);
 
   console.log(values);
 
