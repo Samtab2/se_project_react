@@ -12,8 +12,8 @@ const EditProfileModal = ({
 }) => {
   const currentUser = useContext(CurrentUserContext);
   const inputValues = {
-    name: currentUser.name,
-    avatar: currentUser.avatar,
+    name: currentUser.name || "",
+    avatar: currentUser.avatar || "",
   };
 
   const { values, handleChange, errors, isValid, resetForm } = useForm(
@@ -31,6 +31,8 @@ const EditProfileModal = ({
       }
     }
   };
+
+  console.log(values)
 
   return (
     <ModalWithForm
