@@ -10,7 +10,7 @@ const AddItemModal = ({
   buttonText,
   isLoading,
 }) => {
-  const currentUser = React.useContext(CurrentUserContext);
+  const { currentUser } = React.useContext(CurrentUserContext);
   const inputValues = {
     name: "",
     imageUrl: "",
