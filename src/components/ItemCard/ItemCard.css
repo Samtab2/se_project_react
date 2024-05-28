@@ -1,5 +1,5 @@
 .card {
-  max-width: 328px;
+  width: 328px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -26,10 +26,10 @@
 }
 
 .card__image {
-  max-width: 328px;
+  width: 328px;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  max-height: 328px;
+  height: 328px;
   display: flex;
   overflow: hidden;
 }
