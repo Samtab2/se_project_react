@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
 import "./RegisterModal.css";
-
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
+  const currentUser = useContext(CurrentUserContext);
   const inputValues = {
     name: "",
     email: "",
@@ -11,7 +13,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
   };
 
   const { values, handleChange, errors, isValid, resetForm } =
-    useForm(inputValues);
+    useForm(inputValues, currentUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();

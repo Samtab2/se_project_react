@@ -276,7 +276,6 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     handleCardLike={handleCardLike}
-                    currentUser={currentUser}
                   />
                 }
               />
@@ -290,7 +289,6 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
-                      currentUser={currentUser}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}
                       handleCardLike={handleCardLike}
@@ -314,8 +312,6 @@ function App() {
             <EditProfileModal
               isOpen={activeModal === "edit-profile"}
               updateUser={handleUpdateUser}
-              currentUser={currentUser}
-              avatar={currentUser.avatar}
               onClose={onClose}
               buttonText={isLoading ? "Saving..." : "Save Changes"}
             />

@@ -10,14 +10,15 @@ const EditProfileModal = ({
   buttonText,
   isLoading,
 }) => {
+
   const currentUser = useContext(CurrentUserContext);
   const inputValues = {
-    name: currentUser.name || "",
-    avatar: currentUser.avatar || "",
+    name: "",
+    avatar: "",
   };
 
-  const { values, handleChange, errors, isValid, resetForm } =
-    useForm(inputValues);
+  const { values, handleChange, errors, isValid, resetForm, } =
+    useForm(inputValues, currentUser);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
@@ -28,6 +29,7 @@ const EditProfileModal = ({
       }
     }
   };
+
 
   return (
     <ModalWithForm

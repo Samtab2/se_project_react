@@ -2,7 +2,7 @@ import React from "react";
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWIthForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
-
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 const AddItemModal = ({
   onClose,
   onAddItem,
@@ -10,6 +10,7 @@ const AddItemModal = ({
   buttonText,
   isLoading,
 }) => {
+  const currentUser = React.useContext(CurrentUserContext);
   const inputValues = {
     name: "",
     imageUrl: "",
@@ -17,7 +18,7 @@ const AddItemModal = ({
   };
 
   const { values, handleChange, errors, isValid, resetForm } =
-    useForm(inputValues);
+    useForm(inputValues, currentUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();

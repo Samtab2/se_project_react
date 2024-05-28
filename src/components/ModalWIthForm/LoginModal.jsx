@@ -1,7 +1,8 @@
+import { useContext } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
 import "./LoginModal.css";
-
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 const LoginModal = ({
   onClose,
   isOpen,
@@ -10,13 +11,14 @@ const LoginModal = ({
   errorMessage,
   onLoginClick,
 }) => {
+  const currentUser = useContext(CurrentUserContext);
   const inputValues = {
     email: "",
     password: "",
   };
 
   const { values, handleChange, errors, isValid, resetForm } =
-    useForm(inputValues);
+    useForm(inputValues, currentUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();
