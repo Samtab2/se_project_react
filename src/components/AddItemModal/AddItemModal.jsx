@@ -1,3 +1,4 @@
+import React from "react";
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWIthForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
@@ -23,11 +24,12 @@ const AddItemModal = ({
     if (isValid) {
       onAddItem(values);
     }
-
-    if (isOpen) {
-      resetForm(inputValues);
-    }
   };
+
+    React.useEffect(() => {
+      resetForm(inputValues);
+    }, [isOpen]);
+  
 
   return (
     <ModalWithForm
@@ -43,7 +45,7 @@ const AddItemModal = ({
           type="text"
           className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
           name="name"
-          id="name"
+          id="name3"
           placeholder="Name"
           value={values.name}
           onChange={handleChange}

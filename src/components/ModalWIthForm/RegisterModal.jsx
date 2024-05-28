@@ -37,7 +37,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         <input
           type="text"
           name="name"
-          id="name"
+          id="name2"
           value={values.name}
           onChange={handleChange}
           className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
@@ -51,7 +51,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         <input
           type="email"
           name="email"
-          id="email"
+          id="emailInput"
           value={values.email}
           onChange={handleChange}
           className={`modal__input ${errors.email ? "modal__input_error" : ""}`}
@@ -65,7 +65,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         <input
           type="password"
           name="password"
-          id="password"
+          id="passwordInput"
           value={values.password}
           onChange={handleChange}
           className={`modal__input ${
@@ -81,7 +81,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         <input
           type="url"
           name="avatar"
-          id="avatar"
+          id="avatarInput"
           value={values.avatar}
           onChange={handleChange}
           className={`modal__input ${

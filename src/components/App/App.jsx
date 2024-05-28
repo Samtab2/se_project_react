@@ -84,7 +84,7 @@ function App() {
     setIsLoading(true);
     request()
       .then(() => {
-        onClose(); 
+        onClose();
       })
       .catch((err) => {
         console.error(err);
@@ -127,7 +127,6 @@ function App() {
           setCurrentUser(user);
           setIsLoggedIn(true);
           navigate("/profile");
-          onClose();
         });
     };
 
@@ -187,7 +186,6 @@ function App() {
   const handleAddItemSubmit = (item) => {
     const makeRequest = () => {
       const token = localStorage.getItem("jwt");
-      setIsLoading(true);
       return api.addItem(item, token).then((res) => {
         setClothingItems((prevClothingItems) => [
           res.data,
@@ -217,7 +215,6 @@ function App() {
           (item) => item._id !== selectedCard._id
         );
         setClothingItems(newClothingItems);
-        onClose();
       });
     };
 
