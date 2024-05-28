@@ -13,12 +13,12 @@ const EditProfileModal = ({
 
   const currentUser = useContext(CurrentUserContext);
   const inputValues = {
-    name: currentUser.name,
-    avatar: currentUser.avatar,
+    name: "",
+    avatar: "",
   };
 
   const { values, handleChange, errors, isValid, resetForm, } =
-    useForm(inputValues);
+    useForm(inputValues, currentUser);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
