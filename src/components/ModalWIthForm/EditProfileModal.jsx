@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "./ModalWithForm";
 import "./EditProfileModal.css";
@@ -12,9 +12,16 @@ const EditProfileModal = ({
 }) => {
   const currentUser = useContext(CurrentUserContext);
   const inputValues = {
-    name: currentUser.name || "",
-    avatar: currentUser.avatar || "",
+    name: "",
+    avatar: "",
   };
+
+  useEffect(() => {
+    resetForm({
+      name: "",
+      avatar: "",
+    });
+  }, [currentUser]);
 
   const { values, handleChange, errors, isValid, resetForm } = useForm(
     inputValues,
@@ -25,14 +32,14 @@ const EditProfileModal = ({
     e.preventDefault();
     if (isValid) {
       updateUser(values);
-
-      if (isOpen) {
-        resetForm(inputValues);
-      }
     }
   };
 
-  console.log(values)
+  useEffect(() => {
+    resetForm(inputValues);
+  }, [isOpen]);
+
+  console.log(values);
 
   return (
     <ModalWithForm
@@ -42,7 +49,7 @@ const EditProfileModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       isLoading={isLoading}>
-      <label htmlFor="name1" className="modal__label">
+      <label htmlFor="name" className="modal__label">
         Name
         <input
           type="text"
