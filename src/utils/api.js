@@ -22,7 +22,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addItem ({ name, imageUrl, weather }, token)  {
+  addItem({ name, imageUrl, weather }, token) {
     return fetch(`${this.baseUrl}/items`, {
       method: "POST",
       headers: {
@@ -37,7 +37,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  deleteItem (id, token) {
+  deleteItem(id, token) {
     return fetch(`${this.baseUrl}/items/${id}`, {
       method: "DELETE",
       headers: {

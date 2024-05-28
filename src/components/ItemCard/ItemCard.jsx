@@ -14,9 +14,6 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
   };
   const isLiked = item.likes.some((id) => id === currentUser._id);
 
-  
-
-
   return (
     <li className="card">
       <h2 className="card__name">{item.name}</h2>
@@ -27,7 +24,7 @@ function ItemCard({ item, handleCardClick, handleCardLike }) {
         alt={item.name}
       />
       <button
-        onClick={() => handleLike(item._id,)}
+        onClick={() => handleLike(item._id)}
         type="button"
         className={
           isLiked
