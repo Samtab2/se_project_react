@@ -9,7 +9,6 @@ function Header({
   weatherData,
   onLoginClick,
   onRegisterClick,
-  avatar,
 }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -45,19 +44,13 @@ function Header({
               </button>
             </div>
           </Link>
-          {avatar ? (
-            <Link to="/profile">
-              <img
-                className="header__avatar"
-                alt="avatar"
-                src={currentUser.avatar}
-              />
-            </Link>
-          ) : (
-            <>
-              <img className="header__avatar-logo" src={currentUser.avatar} />
-            </>
-          )}
+          <Link to="/profile">
+            <img
+              className="header__avatar"
+              alt="avatar"
+              src={currentUser.avatar}
+            />
+          </Link>
         </>
       ) : (
         <>
