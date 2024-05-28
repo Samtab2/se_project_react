@@ -10,12 +10,14 @@ const EditProfileModal = ({
   buttonText,
   isLoading,
 }) => {
+
+  const currentUser = useContext(CurrentUserContext);
   const inputValues = {
-    name: "",
-    avatar: "",
+    name: currentUser.name,
+    avatar: currentUser.avatar,
   };
 
-  const { values, handleChange, errors, isValid, resetForm } =
+  const { values, handleChange, errors, isValid, resetForm, } =
     useForm(inputValues);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +31,6 @@ const EditProfileModal = ({
   };
 
 
-  const { currentUser } = useContext(CurrentUserContext);
   return (
     <ModalWithForm
       title="Change Profile Data"
@@ -44,7 +45,7 @@ const EditProfileModal = ({
           type="text"
           name="name"
           id="name"
-          value={currentUser.name}
+          value={values.name}
           onChange={handleChange}
           className={`modal__input ${errors.name ? "modal__input_error" : ""}`}
           placeholder="Name"
@@ -58,7 +59,7 @@ const EditProfileModal = ({
           type="url"
           name="avatar"
           id="avatar"
-          value={currentUser.avatar}
+          value={values.avatar}
           onChange={handleChange}
           className={`modal__input ${
             errors.avatar ? "modal__input_error" : ""

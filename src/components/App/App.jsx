@@ -5,7 +5,7 @@ import Main from "../Main/Main";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import { getweather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinates, APIkey, defaultClothingItems  } from "../../utils/constants";
+import { coordinates, APIkey } from "../../utils/constants";
 import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -278,7 +278,6 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    defaultClothingItems={defaultClothingItems}
                     handleCardLike={handleCardLike}
                     currentUser={currentUser}
                   />
@@ -294,7 +293,6 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
-                      defaultClothingItems={defaultClothingItems}
                       currentUser={currentUser}
                       handleEditProfileModalClick={handleEditProfileModalClick}
                       handleLogOff={handleLogOff}

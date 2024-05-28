@@ -11,7 +11,6 @@ function Profile({
   handleEditProfileModalClick,
   handleLogOff,
   handleCardLike,
-  defaultClothingItems,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
@@ -31,7 +30,6 @@ function Profile({
       </section>
       <ClothesSection
         clothingItems={clothingItems}
-        defaultClothingItems={defaultClothingItems}
         handleCardClick={handleCardClick}
         handleAddClick={addItem}
         handleCardLike={handleCardLike}
