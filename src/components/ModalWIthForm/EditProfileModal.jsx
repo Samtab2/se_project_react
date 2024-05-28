@@ -13,12 +13,14 @@ const EditProfileModal = ({
   const { currentUser } = useContext(CurrentUserContext);
 
   useEffect(() => {
-    resetForm(values);
+    resetForm({
+      name: currentUser.name,
+      avatar: currentUser.avatar,
+    });
   }, [currentUser]);
 
-  const { values, handleChange, errors, isValid, resetForm } = useForm(
-    currentUser
-  );
+  const { values, handleChange, errors, isValid, resetForm } =
+    useForm(currentUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,8 +28,6 @@ const EditProfileModal = ({
       updateUser(values);
     }
   };
-
-
 
   console.log(values);
 
