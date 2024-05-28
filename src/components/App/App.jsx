@@ -264,8 +264,6 @@ function App() {
               onRegisterClick={handleSignUpModalClick}
               onLoginClick={handleSignInModalClick}
               isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              avatar={currentUser.avatar}
             />
             <Routes>
               <Route
