@@ -13,8 +13,10 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
     avatar: "",
   };
 
-  const { values, handleChange, errors, isValid, resetForm } =
-    useForm(inputValues, currentUser);
+  const { values, handleChange, errors, isValid, resetForm } = useForm(
+    inputValues,
+    currentUser
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,8 +28,6 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
   React.useEffect(() => {
     resetForm(inputValues);
   }, [isOpen]);
-
-
 
   return (
     <ModalWithForm

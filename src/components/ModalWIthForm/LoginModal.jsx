@@ -18,8 +18,10 @@ const LoginModal = ({
     password: "",
   };
 
-  const { values, handleChange, errors, isValid, resetForm } =
-    useForm(inputValues, currentUser);
+  const { values, handleChange, errors, isValid, resetForm } = useForm(
+    inputValues,
+    currentUser
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();

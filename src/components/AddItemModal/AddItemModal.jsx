@@ -17,8 +17,10 @@ const AddItemModal = ({
     weather: "",
   };
 
-  const { values, handleChange, errors, isValid, resetForm } =
-    useForm(inputValues, currentUser);
+  const { values, handleChange, errors, isValid, resetForm } = useForm(
+    inputValues,
+    currentUser
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,10 +29,9 @@ const AddItemModal = ({
     }
   };
 
-    React.useEffect(() => {
-      resetForm(inputValues);
-    }, [isOpen]);
-  
+  React.useEffect(() => {
+    resetForm(inputValues);
+  }, [isOpen]);
 
   return (
     <ModalWithForm
