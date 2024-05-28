@@ -55,7 +55,7 @@ function Header({
             </Link>
           ) : (
             <>
-              <div className="header__avatar-logo">{currentUser}</div>
+              <div className="header__avatar-logo">{currentUser.name}</div>
             </>
           )}
         </>
