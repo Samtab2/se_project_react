@@ -51,7 +51,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         />
         <span className="modal__input_error">{errors.name}</span>
       </label>
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="emailInput" className="modal__label">
         Email
         <input
           type="email"
@@ -65,7 +65,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         />
         <span className="modal__input_error">{errors.email}</span>
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="passwordInput" className="modal__label">
         Password
         <input
           type="password"
@@ -81,7 +81,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
         />
         <span className="modal__input_error">{errors.password}</span>
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="avatarInput" className="modal__label">
         Avatar
         <input
           type="url"
