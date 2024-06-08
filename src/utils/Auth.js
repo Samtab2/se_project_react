@@ -1,6 +1,8 @@
+import { baseUrl } from "../utils/constants";
+
 class Auth {
   constructor({ headers }) {
-    this.baseUrl = "http://localhost:3001";
+    this.baseUrl = baseUrl;
     this._headers = headers;
   }
 

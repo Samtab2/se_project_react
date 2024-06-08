@@ -5,7 +5,7 @@ import Main from "../Main/Main";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import { getweather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, APIkey, baseUrl } from "../../utils/constants";
 import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import DeleteConfirmationModal from "../DeleteConfimationModal/DeleteConfirmationModal";
 // Create an instance of the Api class
 const api = new Api({
-  baseUrl: "http://localhost:3001",
+  baseUrl: baseUrl,
   headers: {
     "Content-Type": "application/json",
   },
