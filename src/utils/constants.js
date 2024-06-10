@@ -206,3 +206,4 @@ export const baseUrl =
   process.env.NODE_ENV === "production"
     ? "https://api.sammywtwr.boxathome.net"
     : "http://localhost:3001";
+
