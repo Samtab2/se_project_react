@@ -204,6 +204,6 @@ export const APIkey = "9e88935f20e88aa9e3b5260bb12ff452";
 
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.sammywtwr.boxathome.net"
+    ? "https://api.sammywtwr.wildsurf.net"
     : "http://localhost:3001";
 
