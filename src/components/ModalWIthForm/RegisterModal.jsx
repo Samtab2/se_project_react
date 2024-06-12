@@ -73,6 +73,7 @@ const RegisterModal = ({ onClose, isOpen, onRegister, onLoginClick }) => {
           id="passwordInput"
           value={values.password}
           onChange={handleChange}
+          autoComplete="on"
           className={`modal__input ${
             errors.password ? "modal__input_error" : ""
           }`}

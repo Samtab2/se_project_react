@@ -64,6 +64,7 @@ const LoginModal = ({
           id="password"
           value={values.password}
           onChange={handleChange}
+          autoComplete="on"
           className={`modal__input ${
             errors.password ? "modal__input_error" : ""
           }`}
