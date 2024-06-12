@@ -9,9 +9,9 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./dist/* sammy@sammywtwr.boxathome.net:/home/sammy/frontend"
+    "deploy": "npm run build && scp -r ./dist/* sammy@sammywtwr.wildsurf.net:/home/sammy/frontend"
   },
-  "homepage": "https://sammywtwr.boxathome.net",
+  "homepage": "https://sammywtwr.wildsurf.net",
   "dependencies": {
     "json-server": "^1.0.0-alpha.23",
     "react": "^18.2.0",
