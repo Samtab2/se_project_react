@@ -62,7 +62,7 @@ Backend Repo https://github.com/Samtab2/se_project_express
 
 Unfortunately, Google Cloud is out of charge 
 
-You can run Npm Run dev via VScode so you can see the website. 
+You can run Npm Run dev via VScode Terminal so you can see the website. 
 
 
 
