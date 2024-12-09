@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./dist/* sammy@sammywtwr.wildsurf.net:/home/sammy/frontend"
+    "deploy": "gh-pages -d dist"
   },
   "homepage": "https://api.sammywtwr.wildsurf.net",
   "dependencies": {

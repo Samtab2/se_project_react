@@ -55,10 +55,14 @@ Ensure your code follows best practices and is well-documented.
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
 
 
-Here's My project
-https://sammywtwr.wildsurf.net/
+Here's My project https://github.com/Samtab2/se_project_react
 
-Backend Repo 
-https://github.com/Samtab2/se_project_express 
+Backend Repo https://github.com/Samtab2/se_project_express
+
+
+Unfortunately, Google Cloud is out of charge 
+
+You can run Npm Run dev via VScode so you can see the website. 
+
 
 
